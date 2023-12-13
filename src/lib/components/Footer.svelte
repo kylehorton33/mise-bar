@@ -12,8 +12,7 @@
 	border=""
 	class="bg-surface-100-800-token w-full lg:hidden"
 >
-	<FooterLink route="ingredients"/>
-	<FooterLink route="recipes"/>
-	<FooterLink route="about"/>
-	
+	<FooterLink route="ingredients" />
+	<FooterLink route="recipes" />
+	<FooterLink route="about" />
 </TabGroup>

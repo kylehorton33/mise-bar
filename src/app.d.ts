@@ -8,4 +8,4 @@ declare namespace App {
 	// interface Platform {}
 }
 
-declare module '*.svelte'
+declare module '*.svelte';
