@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let data;
-	let filterTerm: string = "";
+	let filterTerm: string = '';
 </script>
 
 <div class="grid gap-4">
@@ -11,7 +11,11 @@
 	</div>
 	<ul class="grid mx-auto max-w-5xl md:grid-cols-3 xl:grid-cols-4 gap-4 justify-center">
 		{#each data.ingredients as ingredient}
-			<li class="{ingredient.name.toLocaleLowerCase().includes(filterTerm.toLowerCase()) ? "" : "hidden"} w-48">
+			<li
+				class="{ingredient.name.toLocaleLowerCase().includes(filterTerm.toLowerCase())
+					? ''
+					: 'hidden'} w-48"
+			>
 				<label for={ingredient.name} class="flex items-center space-x-2">
 					<input class="checkbox" type="checkbox" checked={ingredient.inStock} />
 					<span>{ingredient.name}</span>

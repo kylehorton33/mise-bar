@@ -1,32 +1,52 @@
-export const ingredients: { name: string; inStock: boolean }[] = [
+export const ingredients: App.Ingredient[] = [
 	{ name: 'Campari', inStock: true },
 	{ name: 'gin', inStock: true },
 	{ name: 'sweet vermouth', inStock: true },
-	{ name: 'bourbon', inStock: false }
+	{ name: 'bourbon', inStock: false },
+	{ name: 'green Chartreuse', inStock: false },
+	{ name: 'maraschino liqueur', inStock: false },
+	{ name: 'lime juice', inStock: false },
+	{ name: 'mezcal', inStock: true },
+	{ name: 'yellow Chartreuse', inStock: false },
+	{ name: 'Aperol', inStock: true }
 ];
 
-export const recipes: { name: string; slug: string, missing?: number, ingredientLines?: { recipe: string, ingredient: string, quantity: number }[] }[] = [
+function findIngredient(name: string) {
+	return ingredients.find((i) => i.name == name) || { name: '-', inStock: false };
+}
+
+export const recipes: App.Recipe[] = [
 	{ name: 'Negroni', slug: 'negroni' },
 	{ name: 'Boulevardier', slug: 'boulevardier' },
 	{ name: 'Last Word', slug: 'last-word' },
-	{ name: 'Naked and Famous', slug: 'naked-and-famous' },
-	{ name: 'Naked and Famous', slug: 'naked-and-famous' },
-	{ name: 'Naked and Famous', slug: 'naked-and-famous' },
+	{ name: 'Naked and Famous', slug: 'naked-and-famous' }
 ];
 
-export const ingredientLines: { recipe: string, ingredient: string, quantity: number }[] = [
-	{recipe: 'Negroni', ingredient: 'Campari', quantity: 1},
-	{recipe: 'Negroni', ingredient: 'gin', quantity: 1},
-	{recipe: 'Negroni', ingredient: 'sweet vermouth', quantity: 1},
-	{recipe: 'Boulevardier', ingredient: 'bourbon', quantity: 1},
-	{recipe: 'Boulevardier', ingredient: 'Campari', quantity: 1},
-	{recipe: 'Boulevardier', ingredient: 'sweet vermouth', quantity: 1},
-	{recipe: 'Last Word', ingredient: 'gin', quantity: 1},
-	{recipe: 'Last Word', ingredient: 'green Chartreuse', quantity: 1},
-	{recipe: 'Last Word', ingredient: 'maraschino liqueur', quantity: 1},
-	{recipe: 'Last Word', ingredient: 'lime juice', quantity: 1},
-	{recipe: 'Naked and Famous', ingredient: 'mezcal', quantity: 1},
-	{recipe: 'Naked and Famous', ingredient: 'yellow Chartreuse', quantity: 1},
-	{recipe: 'Naked and Famous', ingredient: 'Aperol', quantity: 1},
-	{recipe: 'Naked and Famous', ingredient: 'lime juice', quantity: 1},
-]
+function findRecipe(name: string) {
+	return recipes.find((i) => i.name == name) || { name: '-', slug: '-' };
+}
+
+export const ingredientLines: App.IngredientLine[] = [
+	{ recipe: findRecipe('Negroni'), ingredient: findIngredient('Campari'), quantity: 1 },
+	{ recipe: findRecipe('Negroni'), ingredient: findIngredient('gin'), quantity: 1 },
+	{ recipe: findRecipe('Negroni'), ingredient: findIngredient('sweet vermouth'), quantity: 1 },
+	{ recipe: findRecipe('Boulevardier'), ingredient: findIngredient('bourbon'), quantity: 1 },
+	{ recipe: findRecipe('Boulevardier'), ingredient: findIngredient('Campari'), quantity: 1 },
+	{ recipe: findRecipe('Boulevardier'), ingredient: findIngredient('sweet vermouth'), quantity: 1 },
+	{ recipe: findRecipe('Last Word'), ingredient: findIngredient('gin'), quantity: 1 },
+	{ recipe: findRecipe('Last Word'), ingredient: findIngredient('green Chartreuse'), quantity: 1 },
+	{
+		recipe: findRecipe('Last Word'),
+		ingredient: findIngredient('maraschino liqueur'),
+		quantity: 1
+	},
+	{ recipe: findRecipe('Last Word'), ingredient: findIngredient('lime juice'), quantity: 1 },
+	{ recipe: findRecipe('Naked and Famous'), ingredient: findIngredient('mezcal'), quantity: 1 },
+	{
+		recipe: findRecipe('Naked and Famous'),
+		ingredient: findIngredient('yellow Chartreuse'),
+		quantity: 1
+	},
+	{ recipe: findRecipe('Naked and Famous'), ingredient: findIngredient('Aperol'), quantity: 1 },
+	{ recipe: findRecipe('Naked and Famous'), ingredient: findIngredient('lime juice'), quantity: 1 }
+];
