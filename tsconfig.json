@@ -8,6 +8,7 @@
 	],
 	"compilerOptions": {
 		"allowJs": true,
+		"baseUrl": ".",
 		"checkJs": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
@@ -18,10 +19,10 @@
 		"moduleResolution": "bundler",
 		"paths": {
 			"$lib": [
-				"./src/lib"
+				"src/lib"
 			],
 			"$lib/*": [
-				"./src/lib/*"
+				"src/lib/*"
 			],
 		}
 	}
