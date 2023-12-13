@@ -1,7 +1,7 @@
+import type { PageServerLoad } from './$types'
 import { ingredients } from "$lib/data";
 
-/** @type {import('./$types').PageServerLoad} */
-export const load = async () => {
+export const load: PageServerLoad = async () => {
     // API call should be alphabetical
     return { ingredients }
 };
