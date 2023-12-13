@@ -6,6 +6,8 @@ export const ingredients: { name: string; inStock: boolean }[] = [
 ];
 
 export const recipes: { name: string; slug: string }[] = [
-	{ name: 'negroni', slug: 'negroni' },
-	{ name: 'boulevardier', slug: 'boulevardier' }
+	{ name: 'Negroni', slug: 'negroni' },
+	{ name: 'Boulevardier', slug: 'boulevardier' },
+	{ name: 'Last Word', slug: 'last-word' },
+	{ name: 'Naked and Famous', slug: 'naked-and-famous' },
 ];
