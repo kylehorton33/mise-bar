@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { TabGroup, TabAnchor } from '@skeletonlabs/skeleton';
-    let currentTile: number = 0;
 </script>
 
 <TabGroup
@@ -12,17 +11,17 @@
 	border=""
 	class="bg-surface-100-800-token w-full lg:hidden"
 >
-	<TabAnchor selected href="/">
+	<TabAnchor selected href="/ingredients">
 		<svelte:fragment slot="lead">(icon)</svelte:fragment>
-		<span>(label)</span>
+		<span>Ingredients</span>
 	</TabAnchor>
-	<TabAnchor href="/">
+	<TabAnchor href="/recipes">
 		<svelte:fragment slot="lead">(icon)</svelte:fragment>
-		<span>(label)</span>
+		<span>Recipes</span>
 	</TabAnchor>
-	<TabAnchor href="/">
+	<TabAnchor href="/about">
 		<svelte:fragment slot="lead">(icon)</svelte:fragment>
-		<span>(label)</span>
+		<span>About</span>
 	</TabAnchor>
 	<!-- ... -->
 </TabGroup>
