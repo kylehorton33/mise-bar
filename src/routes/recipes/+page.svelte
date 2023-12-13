@@ -9,7 +9,7 @@
 		<div class="input-group-shim">(i)</div>
 		<input type="search" placeholder="Search..." bind:value={filterTerm} />
 	</div>
-	<ul class="grid md:grid-cols-2 2xl:grid-cols-3 mx-auto gap-4">
+	<ul class="grid md:grid-cols-2 2xl:grid-cols-3 mx-auto gap-4 h-[32rem] overflow-y-scroll">
 		{#each data.recipes as { name, slug, ingredientLines, missing }}
 			<li class="{name.toLocaleLowerCase().includes(filterTerm.toLowerCase()) ? "" : "hidden"}">
 				<a href="/recipes/{slug}">

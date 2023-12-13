@@ -10,6 +10,8 @@ export const recipes: { name: string; slug: string, missing?: number, ingredient
 	{ name: 'Boulevardier', slug: 'boulevardier' },
 	{ name: 'Last Word', slug: 'last-word' },
 	{ name: 'Naked and Famous', slug: 'naked-and-famous' },
+	{ name: 'Naked and Famous', slug: 'naked-and-famous' },
+	{ name: 'Naked and Famous', slug: 'naked-and-famous' },
 ];
 
 export const ingredientLines: { recipe: string, ingredient: string, quantity: number }[] = [
