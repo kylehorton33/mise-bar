@@ -18,7 +18,7 @@ export const ingredientLines: { recipe: string, ingredient: string, quantity: nu
 	{recipe: 'Negroni', ingredient: 'Campari', quantity: 1},
 	{recipe: 'Negroni', ingredient: 'gin', quantity: 1},
 	{recipe: 'Negroni', ingredient: 'sweet vermouth', quantity: 1},
-	{recipe: 'Boulevardier', ingredient: 'gin', quantity: 1},
+	{recipe: 'Boulevardier', ingredient: 'bourbon', quantity: 1},
 	{recipe: 'Boulevardier', ingredient: 'Campari', quantity: 1},
 	{recipe: 'Boulevardier', ingredient: 'sweet vermouth', quantity: 1},
 	{recipe: 'Last Word', ingredient: 'gin', quantity: 1},
