@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { TabGroup, TabAnchor } from '@skeletonlabs/skeleton';
+	import { TabGroup } from '@skeletonlabs/skeleton';
+	import FooterLink from './FooterLink.svelte';
 </script>
 
 <TabGroup
@@ -11,17 +12,8 @@
 	border=""
 	class="bg-surface-100-800-token w-full lg:hidden"
 >
-	<TabAnchor selected href="/ingredients">
-		<svelte:fragment slot="lead">(icon)</svelte:fragment>
-		<span>Ingredients</span>
-	</TabAnchor>
-	<TabAnchor href="/recipes">
-		<svelte:fragment slot="lead">(icon)</svelte:fragment>
-		<span>Recipes</span>
-	</TabAnchor>
-	<TabAnchor href="/about">
-		<svelte:fragment slot="lead">(icon)</svelte:fragment>
-		<span>About</span>
-	</TabAnchor>
-	<!-- ... -->
+	<FooterLink route="ingredients"/>
+	<FooterLink route="recipes"/>
+	<FooterLink route="about"/>
+	
 </TabGroup>

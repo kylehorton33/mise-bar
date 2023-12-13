@@ -5,7 +5,6 @@
 </script>
 
 <AppShell>
-	
 	<!-- pageHeader -->
 	<svelte:fragment slot="header">
 		<Header />
@@ -16,10 +15,11 @@
 		<Sidebar />
 	</svelte:fragment>
 
-
 	<!-- Router Slot -->
-	<slot />
-	
+	<div id="route">
+		<slot />
+	</div>
+
 	<!-- footer -->
 	<svelte:fragment slot="footer">
 		<Footer />
