@@ -3,7 +3,7 @@ import { recipes, ingredientLines } from '$lib/data';
 
 export const load: PageServerLoad = async () => {
 	// mock API call to get list of all recipes
-	const recipeList: { recipe: App.Recipe; ingredients: App.IngredientLine[]; missing: number }[] =
+	const recipeList: { recipe: Recipe; ingredients: IngredientLine[]; missing: number }[] =
 		[];
 	recipes.forEach((recipe) => {
 		const ingredients = ingredientLines.filter((i) => i.recipe.name === recipe.name);
