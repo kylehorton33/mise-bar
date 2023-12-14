@@ -8,7 +8,7 @@
 	<hr />
 	<ul class="list-disc list-inside w-72">
 		{#each data.recipe.ingredients as { ingredient, quantity }}
-			<li class="{ingredient.inStock ? "" : "text-error-800"}">{quantity} oz {ingredient.name}</li>
+			<li class={ingredient.inStock ? '' : 'text-error-800'}>{quantity} oz {ingredient.name}</li>
 		{/each}
 	</ul>
 	<p class="w-72">

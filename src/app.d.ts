@@ -1,7 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 
-import type { ingredients } from "$lib/data";
+import type { ingredients } from '$lib/data';
 
 // and what to do when importing types
 declare namespace App {

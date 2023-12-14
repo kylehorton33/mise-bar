@@ -17,17 +17,17 @@ export const actions: Actions = {
 		const body = Object.fromEntries(await request.formData());
 		// validate data, send back if not
 		if (!body.name) {
-			throw error(500, "enter name!")
+			throw error(500, 'enter name!');
 		}
 		try {
 			const data = {
 				name: body.name,
 				inStock: !!body.inStock,
 				unit: body.unit
-			}
+			};
 			await locals.pb.collection('ingredients').create(data);
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
 		// send back if ingredient name is already taken
 		//redirects automatically? redirect(303, '/ingredients')
@@ -43,7 +43,7 @@ export const actions: Actions = {
 			console.log(error);
 		}
 		return {
-            success: true
-        }
+			success: true
+		};
 	}
 };

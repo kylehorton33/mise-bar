@@ -16,21 +16,22 @@ export const load: PageServerLoad = async ({ locals }) => {
 
 		// figure out how to fold all this data together
 		recipeList.forEach((r: Recipe) => {
-			r.ingredients = []
-			
-			allIngredientLines.filter((l: IngredientLine) => l.recipe === r.id).forEach((l: IngredientLine) => {
-				r.ingredients?.push({
-					quantity: l.quantity,
-					ingredient: {
-						name: allIngredients.find(i => i.id === l.ingredient).name,
-						inStock: allIngredients.find(i => i.id === l.ingredient).inStock,
-					}
-				})
-			})
+			r.ingredients = [];
+
+			allIngredientLines
+				.filter((l: IngredientLine) => l.recipe === r.id)
+				.forEach((l: IngredientLine) => {
+					r.ingredients?.push({
+						quantity: l.quantity,
+						ingredient: {
+							name: allIngredients.find((i) => i.id === l.ingredient).name,
+							inStock: allIngredients.find((i) => i.id === l.ingredient).inStock
+						}
+					});
+				});
 
 			r.missing = r.ingredients.reduce((n, i) => n + +!i.ingredient.inStock, 0);
-
-		})
+		});
 		recipeList.sort((a, b) => a.missing - b.missing);
 
 		return { recipeList };
@@ -48,8 +49,6 @@ export const load: PageServerLoad = async ({ locals }) => {
 
 	// sort by fewest missing ingredients to highest
 	recipeList.sort((a, b) => a.missing - b.missing);
-
-	
 };
 
 export const actions: Actions = {

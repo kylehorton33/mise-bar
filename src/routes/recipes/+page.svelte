@@ -11,9 +11,7 @@
 	</div>
 	<ul class="grid md:grid-cols-2 2xl:grid-cols-3 mx-auto gap-4 max-h-[32rem] overflow-y-scroll">
 		{#each data.recipeList as { name, slug, ingredients, missing }}
-			<li
-				class={name.toLocaleLowerCase().includes(filterTerm.toLowerCase()) ? '' : 'hidden'}
-			>
+			<li class={name.toLocaleLowerCase().includes(filterTerm.toLowerCase()) ? '' : 'hidden'}>
 				<a href="/recipes/{slug}">
 					<div class="block card card-hover p-2 w-72 h-32 mx-auto relative rounded-lg">
 						<span
