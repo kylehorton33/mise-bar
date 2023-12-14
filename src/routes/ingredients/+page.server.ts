@@ -17,7 +17,8 @@ export const actions: Actions = {
 		const body = Object.fromEntries(await request.formData());
 		// validate data, send back if not
 		if (!body.name) {
-			throw error(500, 'enter name!');
+			console.log('name missing');
+			throw error(500);
 		}
 		try {
 			const data = {

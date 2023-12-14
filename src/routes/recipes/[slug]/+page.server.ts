@@ -1,6 +1,7 @@
+import type { ClientResponseError } from 'pocketbase';
 import type { PageServerLoad } from './$types';
-import { recipes, ingredientLines } from '$lib/data';
-import { error } from '@sveltejs/kit';
+import { error, type HttpError } from '@sveltejs/kit';
+//import { recipes, ingredientLines } from '$lib/data';
 
 export const load: PageServerLoad = async ({ params, locals }) => {
 	try {
@@ -10,7 +11,7 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 			.getFullList({ filter: `recipe="${recipe.id}"` });
 		const getIngredients = async () => {
 			return Promise.all(
-				ingredientLines.map(async (l) => {
+				ingredientLines.map(async (l: IngredientLine) => {
 					const ingredient = await locals.pb.collection('ingredients').getOne(l.ingredient);
 					return {
 						quantity: l.quantity,
@@ -27,20 +28,9 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 
 		console.log(recipe);
 		return { recipe };
-	} catch (error) {
-		console.log(error.response.code, error.response.message);
+	} catch (_err) {
+		const err = _err as ClientResponseError;
+		console.log(err);
+		throw error(err.status);
 	}
-
-	const recipe = recipes.find((r) => r.slug == params.slug);
-
-	if (!recipe) {
-		throw error(404, `${params.slug} not found`);
-	}
-
-	const fullRecipe: { recipe: Recipe; ingredients: IngredientLine[] } = {
-		recipe,
-		ingredients: ingredientLines.filter((l) => l.recipe.name == recipe.name)
-	};
-
-	return { fullRecipe };
 };

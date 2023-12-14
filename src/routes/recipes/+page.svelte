@@ -1,6 +1,10 @@
 <script lang="ts">
 	export let data;
 	let filterTerm: string = '';
+
+	function listIngredients(ingredients: IngredientLineData[]) {
+		return ingredients.map((i) => i.ingredient?.name).join(' | ');
+	}
 </script>
 
 <div class="grid gap-4">
@@ -21,7 +25,7 @@
 						>
 						<header class="card-header uppercase">{name}</header>
 						<section class="p-4 text-xs">
-							{ingredients.map((i) => i.ingredient?.name).join(' | ')}
+							{listIngredients(ingredients)}
 						</section>
 					</div>
 				</a>

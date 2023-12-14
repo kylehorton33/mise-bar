@@ -1,6 +1,4 @@
 import type { Actions, PageServerLoad } from './$types';
-import { recipes, ingredientLines } from '$lib/data';
-import type { IngredientLine, Recipe } from 'src/app';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	try {
@@ -21,34 +19,27 @@ export const load: PageServerLoad = async ({ locals }) => {
 			allIngredientLines
 				.filter((l: IngredientLine) => l.recipe === r.id)
 				.forEach((l: IngredientLine) => {
-					r.ingredients?.push({
+					const ingredient: Ingredient = allIngredients.find(
+						(i: Ingredient) => i.id === l.ingredient
+					);
+					const data: IngredientLineData = {
 						quantity: l.quantity,
 						ingredient: {
-							name: allIngredients.find((i) => i.id === l.ingredient).name,
-							inStock: allIngredients.find((i) => i.id === l.ingredient).inStock
+							name: ingredient.name,
+							inStock: ingredient.inStock
 						}
-					});
+					};
+					r.ingredients?.push(data);
 				});
 
 			r.missing = r.ingredients.reduce((n, i) => n + +!i.ingredient.inStock, 0);
 		});
-		recipeList.sort((a, b) => a.missing - b.missing);
+		recipeList.sort((a: Recipe, b: Recipe) => a.missing - b.missing);
 
 		return { recipeList };
 	} catch (error) {
 		console.log('[PB:] ', error);
 	}
-
-	// mock API call to get list of all recipes
-	const recipeList: { recipe: Recipe; ingredients: IngredientLine[]; missing: number }[] = [];
-	recipes.forEach((recipe) => {
-		const ingredients = ingredientLines.filter((i) => i.recipe.name === recipe.name);
-		const missing = ingredients.reduce((n, i) => n + +!i.ingredient.inStock, 0);
-		recipeList.push({ recipe, ingredients, missing });
-	});
-
-	// sort by fewest missing ingredients to highest
-	recipeList.sort((a, b) => a.missing - b.missing);
 };
 
 export const actions: Actions = {
