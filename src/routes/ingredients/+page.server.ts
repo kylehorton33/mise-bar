@@ -2,8 +2,17 @@ import type { Actions, PageServerLoad } from './$types';
 import { ingredients } from '$lib/data';
 // import { redirect } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ locals }) => {
 	// API call should be alphabetical?
+	try {
+		const resultList = await locals.pb.collection('ingredients')
+			.getFullList({sort: 'name', fields: 'name, inStock' });
+		console.log(resultList)
+	} catch (error) {
+		console.log("[PB:] ", error)
+	}
+
+
 	return { ingredients };
 };
 
