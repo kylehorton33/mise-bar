@@ -1,19 +1,14 @@
 import type { Actions, PageServerLoad } from './$types';
-import { ingredients } from '$lib/data';
-// import { redirect } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	// API call should be alphabetical?
 	try {
-		const resultList = await locals.pb
+		const ingredients = await locals.pb
 			.collection('ingredients')
-			.getFullList({ sort: 'name', fields: 'name, inStock' });
-		console.log(resultList);
+			.getFullList({ sort: 'name', fields: 'id, name, inStock' });
+		return { ingredients };
 	} catch (error) {
 		console.log('[PB:] ', error);
 	}
-
-	return { ingredients };
 };
 
 export const actions: Actions = {
@@ -22,6 +17,19 @@ export const actions: Actions = {
 		console.log(body);
 		// validate data, send back if not
 		// send back if ingredient name is already taken
+		//redirects automatically? redirect(303, '/ingredients')
+	},
+	stock: async ({ request, locals }) => {
+		const body = Object.fromEntries(await request.formData());
+		// validate data, send back if not
+		try {
+			const data = {
+				inStock: !!body.inStock
+			};
+			await locals.pb.collection('ingredients').update(body.id, data);
+		} catch (error) {
+			console.log(error);
+		}
 		//redirects automatically? redirect(303, '/ingredients')
 	}
 };

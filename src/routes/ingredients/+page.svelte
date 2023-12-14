@@ -1,6 +1,11 @@
 <script lang="ts">
 	export let data;
 	let filterTerm: string = '';
+
+	function stockChange(id: string) {
+		const form: HTMLFormElement = document.getElementById(id) as HTMLFormElement
+		form.requestSubmit()
+	}
 </script>
 
 <div class="grid gap-4">
@@ -10,16 +15,23 @@
 		<input type="search" placeholder="Search..." bind:value={filterTerm} />
 	</div>
 	<ul class="grid mx-auto max-w-5xl md:grid-cols-3 xl:grid-cols-4 gap-4 justify-center">
-		{#each data.ingredients as ingredient}
+		{#each data.ingredients as { id, name, inStock }}
 			<li
-				class="{ingredient.name.toLocaleLowerCase().includes(filterTerm.toLowerCase())
-					? ''
-					: 'hidden'} w-48"
+				class="{name.toLocaleLowerCase().includes(filterTerm.toLowerCase()) ? '' : 'hidden'} w-48"
 			>
-				<label for={ingredient.name} class="flex items-center space-x-2">
-					<input class="checkbox" type="checkbox" checked={ingredient.inStock} />
-					<span>{ingredient.name}</span>
-				</label>
+				<form id={id} action="?/stock" method="post">
+					<label for={name} class="flex items-center space-x-2">
+						<input type="text" hidden name="id" value={id} />
+						<input
+							name="inStock"
+							class="checkbox"
+							type="checkbox"
+							on:change={() => stockChange(id)}
+							checked={inStock}
+						/>
+						<span class="uppercase">{name}</span>
+					</label>
+				</form>
 			</li>
 		{/each}
 		<a href="/ingredients/new" class="btn variant-filled">New</a>
