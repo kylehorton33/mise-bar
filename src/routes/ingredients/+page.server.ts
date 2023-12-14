@@ -1,3 +1,4 @@
+import { error } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
@@ -12,10 +13,22 @@ export const load: PageServerLoad = async ({ locals }) => {
 };
 
 export const actions: Actions = {
-	create: async ({ request }) => {
+	create: async ({ request, locals }) => {
 		const body = Object.fromEntries(await request.formData());
-		console.log(body);
 		// validate data, send back if not
+		if (!body.name) {
+			throw error(500, "enter name!")
+		}
+		try {
+			const data = {
+				name: body.name,
+				inStock: !!body.inStock,
+				unit: body.unit
+			}
+			await locals.pb.collection('ingredients').create(data);
+		} catch (error) {
+			console.log(error)
+		}
 		// send back if ingredient name is already taken
 		//redirects automatically? redirect(303, '/ingredients')
 	},

@@ -7,7 +7,7 @@
 	</label>
 	<label class="label">
 		<span>Default Unit</span>
-		<select name="defaultUnit" class="select col-span-5">
+		<select name="unit" class="select col-span-5">
 			<option value="oz" selected>oz</option>
 			<option value="dash">dash</option>
 			<option value="whole">whole</option>
