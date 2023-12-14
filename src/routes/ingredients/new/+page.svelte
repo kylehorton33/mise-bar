@@ -13,9 +13,9 @@
 			<option value="whole">whole</option>
 		</select>
 	</label>
-    <label class="label">
-        <input name="inStock" class="checkbox" type="checkbox" checked />
-        <span>in stock</span>
-    </label>
+	<label class="label">
+		<input name="inStock" class="checkbox" type="checkbox" checked />
+		<span>in stock</span>
+	</label>
 	<button type="submit" class="btn variant-filled mt-4">Submit</button>
 </form>
