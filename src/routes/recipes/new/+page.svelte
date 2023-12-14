@@ -1,4 +1,8 @@
 <script>
+	import { ingredients } from "$lib/data";
+
+	export let data;
+
 	let ingredientLines = [
 		{ quantity: 0.75, ingredient: '' },
 		{ quantity: 0.75, ingredient: '' }
@@ -21,17 +25,18 @@
 		{#each ingredientLines as line, idx}
 			<div class="grid grid-cols-8 gap-2">
 				<input
-					name="ingredientLines[{idx}][quantity]"
+					name="ingredientLines,{idx},quantity"
 					class="input col-span-3"
 					type="number"
 					min="0"
 					step="0.25"
 					bind:value={line.quantity}
 				/>
-				<select name="ingredientLines[{idx}][ingredient]" class="select col-span-5">
+				<select name="ingredientLines,{idx},ingredient" class="select col-span-5">
 					<option value="" disabled selected>Ingredient {idx + 1}</option>
-					<option value="gin">GIN</option>
-					<option value="tonic">TONIC</option>
+					{#each data.ingredients as {id, name}}
+						<option value={id}>{name.toUpperCase()}</option>
+					{/each}
 				</select>
 			</div>
 		{/each}
