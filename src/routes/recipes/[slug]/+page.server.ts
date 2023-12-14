@@ -9,7 +9,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		throw error(404, `${params.slug} not found`);
 	}
 
-	const fullRecipe: { recipe: App.Recipe; ingredients: App.IngredientLine[] } = {
+	const fullRecipe: { recipe: Recipe; ingredients: IngredientLine[] } = {
 		recipe,
 		ingredients: ingredientLines.filter((l) => l.recipe.name == recipe.name)
 	};

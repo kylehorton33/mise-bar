@@ -1,4 +1,4 @@
-export const ingredients: App.Ingredient[] = [
+export const ingredients: Ingredient[] = [
 	{ name: 'Campari', inStock: true },
 	{ name: 'gin', inStock: true },
 	{ name: 'sweet vermouth', inStock: true },
@@ -15,7 +15,7 @@ function findIngredient(name: string) {
 	return ingredients.find((i) => i.name == name) || { name: '-', inStock: false };
 }
 
-export const recipes: App.Recipe[] = [
+export const recipes: Recipe[] = [
 	{ name: 'Negroni', slug: 'negroni' },
 	{ name: 'Boulevardier', slug: 'boulevardier' },
 	{ name: 'Last Word', slug: 'last-word' },
@@ -26,7 +26,7 @@ function findRecipe(name: string) {
 	return recipes.find((i) => i.name == name) || { name: '-', slug: '-' };
 }
 
-export const ingredientLines: App.IngredientLine[] = [
+export const ingredientLines: IngredientLine[] = [
 	{ recipe: findRecipe('Negroni'), ingredient: findIngredient('Campari'), quantity: 1 },
 	{ recipe: findRecipe('Negroni'), ingredient: findIngredient('gin'), quantity: 1 },
 	{ recipe: findRecipe('Negroni'), ingredient: findIngredient('sweet vermouth'), quantity: 1 },
