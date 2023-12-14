@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { ingredients } from './testData'; 
 
 test.beforeEach('goto ingredients page', async ({ page }) => {
 	await page.goto('/ingredients');
@@ -6,7 +7,7 @@ test.beforeEach('goto ingredients page', async ({ page }) => {
 
 test('expected content', async ({ page }) => {
 	await expect(page.getByRole('heading', { name: 'Ingredients' })).toBeVisible();
-	await expect(page.getByRole('listitem')).toHaveCount(10);
+	await expect(page.getByRole('listitem')).toHaveCount(ingredients.length);
 	await expect(
 		page.locator('label').filter({ hasText: 'bourbon' }).getByRole('checkbox')
 	).not.toBeChecked();
