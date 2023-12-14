@@ -1,4 +1,4 @@
-import type { PageServerLoad } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 import { recipes, ingredientLines } from '$lib/data';
 
 export const load: PageServerLoad = async () => {
@@ -15,4 +15,16 @@ export const load: PageServerLoad = async () => {
 	recipeList.sort((a, b) => a.missing - b.missing);
 
 	return { recipeList };
+};
+
+export const actions: Actions = {
+	create: async ({ request }) => {
+		const body = Object.fromEntries(await request.formData())
+		console.log(body)
+		// validate data, send back if not
+		// create recipe
+		// create ingredientLines
+		// redirect to single recipe
+	}
+
 };

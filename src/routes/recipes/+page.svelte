@@ -29,5 +29,8 @@
 				</a>
 			</li>
 		{/each}
+		<div class="text-center">
+			<a href="/recipes/new" class="btn variant-filled">New</a>
+		</div>
 	</ul>
 </div>
