@@ -8,7 +8,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 			.getFullList({ sort: 'name', fields: 'id, name, inStock' });
 		return { ingredients };
 	} catch (error) {
-		console.log('[PB:] ', error);
+		console.log('[ERROR LOADING INGREDIENTS:] ', error);
 	}
 };
 
@@ -17,7 +17,7 @@ export const actions: Actions = {
 		const body = Object.fromEntries(await request.formData());
 		// validate data, send back if not
 		if (!body.name) {
-			console.log('name missing');
+			console.log('[ERROR IN USER INPUT] name missing');
 			throw error(500);
 		}
 		try {
@@ -28,7 +28,7 @@ export const actions: Actions = {
 			};
 			await locals.pb.collection('ingredients').create(data);
 		} catch (error) {
-			console.log(error);
+			console.log('[ERROR CREATING INGREDIENT]', error);
 		}
 		// send back if ingredient name is already taken
 		//redirects automatically? redirect(303, '/ingredients')
@@ -41,7 +41,7 @@ export const actions: Actions = {
 			};
 			await locals.pb.collection('ingredients').update(body.id, data);
 		} catch (error) {
-			console.log(error);
+			console.log('[ERROR STOCKING INGREDIENT] ', error);
 		}
 		return {
 			success: true

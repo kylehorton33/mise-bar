@@ -1,7 +1,6 @@
 import type { ClientResponseError } from 'pocketbase';
 import type { PageServerLoad } from './$types';
-import { error, type HttpError } from '@sveltejs/kit';
-//import { recipes, ingredientLines } from '$lib/data';
+import { error } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ params, locals }) => {
 	try {
@@ -24,13 +23,10 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 			);
 		};
 		recipe.ingredients = await getIngredients();
-		//console.log(ingredients)
-
-		console.log(recipe);
 		return { recipe };
 	} catch (_err) {
 		const err = _err as ClientResponseError;
-		console.log(err);
+		console.log('[ERROR LOADING SINGLE INGREDIENT]', err);
 		throw error(err.status);
 	}
 };

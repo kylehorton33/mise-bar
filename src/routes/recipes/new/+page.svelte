@@ -1,5 +1,5 @@
 <script>
-	import { ingredients } from "$lib/data";
+	import { ingredients } from '$lib/data';
 
 	export let data;
 
@@ -34,7 +34,7 @@
 				/>
 				<select name="ingredientLines,{idx},ingredient" class="select col-span-5">
 					<option value="" disabled selected>Ingredient {idx + 1}</option>
-					{#each data.ingredients as {id, name}}
+					{#each data.ingredients as { id, name }}
 						<option value={id}>{name.toUpperCase()}</option>
 					{/each}
 				</select>

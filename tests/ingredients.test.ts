@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { ingredients } from './testData'; 
+import { ingredients } from './testData';
 
 test.beforeEach('goto ingredients page', async ({ page }) => {
 	await page.goto('/ingredients');

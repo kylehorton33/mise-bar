@@ -40,11 +40,9 @@ export const load: PageServerLoad = async ({ locals }) => {
 
 		return { recipeList };
 	} catch (error) {
-		console.log('[PB:] ', error);
+		console.log('[ERROR LOADING INGREDIENTS:] ', error);
 	}
 };
-
-
 
 export const actions: Actions = {
 	create: async ({ request, locals }) => {
@@ -52,8 +50,8 @@ export const actions: Actions = {
 
 		// validate data, send back if not
 		if (!body.name) {
-			console.log('needs name')
-			throw error(500)
+			console.log('[ERROR USER INPUT] needs name');
+			throw error(500);
 		}
 
 		let recipe: string;
@@ -63,17 +61,16 @@ export const actions: Actions = {
 		const recipeData = {
 			name: body.name,
 			slug: createSlug(body.name as string)
-		}
+		};
 
 		try {
-			console.log('[RECIPE DATA]: ', recipeData)
 			const record = await locals.pb.collection('recipes').create(recipeData);
 			// use id in next step
-			recipe = record.id
-			slug = record.slug
+			recipe = record.id;
+			slug = record.slug;
 		} catch (err) {
-			console.log(err)
-			throw error(500)
+			console.log('[ERROR CREATING RECIPE]', err);
+			throw error(500);
 		}
 
 		// create ingredientLines
@@ -85,25 +82,37 @@ export const actions: Actions = {
 							recipe,
 							quantity: parseFloat(body[l]),
 							ingredient: Object.values(body)[i + 1]
-						}
+						};
 					}
 				})
 			);
 		};
-		let lines = await getIngredientLines()
-		try {
-			lines.forEach(async (data) => {
-				if (data) {
-					await locals.pb.collection('ingredientLines').create(data, { requestKey: data.ingredient });
-				}
-			})
-			// redirect to single recipe
-			throw redirect(303, `/recipes/${slug}`)
-		} catch (err) {
-			console.log(err)
-			throw error(500)
-		}
+		let lines = await getIngredientLines();
 
+		const createIngredientLines = async () => {
+			return Promise.all(
+				lines.map(async (data) => {
+					if (data) {
+						try {
+							await locals.pb
+								.collection('ingredientLines')
+								.create(data, { requestKey: data.ingredient });
+						} catch (err) {
+							console.log('[err CREATING LINES] ', err);
+							throw error(500);
+						}
+					}
+					return {
+						status: 'done'
+					};
+				})
+			);
+		};
 
+		let response = await createIngredientLines();
+
+		console.log(response);
+
+		throw redirect(303, `/recipes/${slug}`);
 	}
 };
