@@ -1,19 +1,39 @@
 import type { Actions, PageServerLoad } from './$types';
 import { recipes, ingredientLines } from '$lib/data';
+import type { IngredientLine, Recipe } from 'src/app';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	try {
-		const allRecipes = await locals.pb
+		const recipeList = await locals.pb
 			.collection('recipes')
-			.getFullList({ sort: 'name', fields: 'id, name' });
+			.getFullList({ sort: 'name', fields: 'id, name, slug' });
 		const allIngredients = await locals.pb
 			.collection('ingredients')
-			.getFullList({ sort: 'name', fields: 'id, name, inStock' });
-		const allRecipeLines = await locals.pb
-			.collection('recipe_lines')
-			.getFullList({ sort: 'recipe', fields: 'recipe, ingredient, quantity' });
+			.getFullList({ fields: 'id, name, inStock' });
+		const allIngredientLines = await locals.pb
+			.collection('ingredientLines')
+			.getFullList({ fields: 'recipe, ingredient, quantity' });
 
 		// figure out how to fold all this data together
+		recipeList.forEach((r: Recipe) => {
+			r.ingredients = []
+			
+			allIngredientLines.filter((l: IngredientLine) => l.recipe === r.id).forEach((l: IngredientLine) => {
+				r.ingredients?.push({
+					quantity: l.quantity,
+					ingredient: {
+						name: allIngredients.find(i => i.id === l.ingredient).name,
+						inStock: allIngredients.find(i => i.id === l.ingredient).inStock,
+					}
+				})
+			})
+
+			r.missing = r.ingredients.reduce((n, i) => n + +!i.ingredient.inStock, 0);
+
+		})
+		recipeList.sort((a, b) => a.missing - b.missing);
+
+		return { recipeList };
 	} catch (error) {
 		console.log('[PB:] ', error);
 	}
@@ -29,7 +49,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 	// sort by fewest missing ingredients to highest
 	recipeList.sort((a, b) => a.missing - b.missing);
 
-	return { recipeList };
+	
 };
 
 export const actions: Actions = {

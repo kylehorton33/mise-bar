@@ -1,5 +1,8 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
+
+import type { ingredients } from "$lib/data";
+
 // and what to do when importing types
 declare namespace App {
 	interface Locals {
@@ -18,11 +21,13 @@ interface Ingredient {
 	inStock: boolean;
 }
 interface Recipe {
+	id?: string;
 	name: string;
 	slug: string;
+	ingredients?: IngredientLine[];
 }
 interface IngredientLine {
-	recipe: Recipe;
-	ingredient: Ingredient;
+	recipe: string;
+	ingredient: string;
 	quantity: number;
 }
