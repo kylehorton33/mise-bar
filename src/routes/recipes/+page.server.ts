@@ -80,7 +80,7 @@ export const actions: Actions = {
 					if (l.includes('quantity')) {
 						return {
 							recipe,
-							quantity: parseFloat(body[l]),
+							quantity: parseFloat(body[l] as string),
 							ingredient: Object.values(body)[i + 1]
 						};
 					}
