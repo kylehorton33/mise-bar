@@ -22,5 +22,6 @@
 				</label>
 			</li>
 		{/each}
+		<a href="/ingredients/new" class="btn variant-filled">New</a>
 	</ul>
 </div>
