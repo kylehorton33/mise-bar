@@ -21,7 +21,6 @@ export const actions: Actions = {
 	},
 	stock: async ({ request, locals }) => {
 		const body = Object.fromEntries(await request.formData());
-		// validate data, send back if not
 		try {
 			const data = {
 				inStock: !!body.inStock
@@ -30,6 +29,8 @@ export const actions: Actions = {
 		} catch (error) {
 			console.log(error);
 		}
-		//redirects automatically? redirect(303, '/ingredients')
+		return {
+            success: true
+        }
 	}
 };
