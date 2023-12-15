@@ -20,20 +20,19 @@ declare namespace App {
 declare module '*.svelte';
 
 interface Ingredient {
-	id: string;
 	name: string;
-	inStock: boolean;
+	unit: string;
+	inStock?: boolean;
 }
 interface Recipe {
-	id?: string;
 	name: string;
 	slug: string;
-	missing: number;
-	ingredients: IngredientLineData[] | null;
+	//missing?: number;
+	ingredients?: IngredientLine[] | null;
 }
 interface IngredientLine {
 	recipe: string;
-	ingredient: string;
+	ingredient: Ingredient;
 	quantity: number;
 }
 

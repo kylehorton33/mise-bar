@@ -1,38 +1,14 @@
-import { error } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
+import { ingredients } from '$lib/data';
+import { sortByName } from '$lib/utils';
 
-export const load: PageServerLoad = async ({ locals }) => {
-	try {
-		const ingredients = await locals.pb
-			.collection('ingredients')
-			.getFullList({ sort: 'name', fields: 'id, name, inStock' });
-		return { ingredients };
-	} catch (error) {
-		console.log('[ERROR LOADING INGREDIENTS:] ', error);
+export const load: PageServerLoad = async () => {
+	return {
+		ingredients: sortByName(ingredients)
 	}
 };
 
 export const actions: Actions = {
-	create: async ({ request, locals }) => {
-		const body = Object.fromEntries(await request.formData());
-		// validate data, send back if not
-		if (!body.name) {
-			console.log('[ERROR IN USER INPUT] name missing');
-			throw error(500);
-		}
-		try {
-			const data = {
-				name: body.name,
-				inStock: !!body.inStock,
-				unit: body.unit
-			};
-			await locals.pb.collection('ingredients').create(data);
-		} catch (error) {
-			console.log('[ERROR CREATING INGREDIENT]', error);
-		}
-		// send back if ingredient name is already taken
-		//redirects automatically? redirect(303, '/ingredients')
-	},
 	stock: async ({ request, locals }) => {
 		const body = Object.fromEntries(await request.formData());
 		try {

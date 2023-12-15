@@ -1,41 +1,27 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
-
 	export let filterTerm: string;
-	export let id: string;
-	export let name: string;
-	export let inStock: boolean;
-    export let loading: boolean;
+	export let ingredient: Ingredient;
 
-	
+	let inStock = false;
 
-	function stockChange(id: string) {
-		const form: HTMLFormElement = document.getElementById(id) as HTMLFormElement;
-		form.requestSubmit();
-	}
-
-	function enhancedSubmit() {
-		loading = true;
-
-		return () => {
-			loading = false;
-		};
+	function stockChange(name: string) {
+		//stock change local storage
 	}
 </script>
 
-<li class="{name.toLocaleLowerCase().includes(filterTerm.toLowerCase()) ? '' : 'hidden'} w-48">
-	<form {id} action="?/stock" use:enhance={enhancedSubmit} method="post">
-		<label for={name} class="flex items-center space-x-2">
-			<input type="text" hidden name="id" value={id} />
-			<input
-				name="inStock"
-				class="checkbox disabled:opacity-25"
-				type="checkbox"
-				on:change={() => stockChange(id)}
-				checked={inStock}
-				disabled={loading}
-			/>
-			<span class="uppercase">{name}</span>
-		</label>
-	</form>
+<li
+	class="{ingredient.name.toLocaleLowerCase().includes(filterTerm.toLowerCase())
+		? ''
+		: 'hidden'} w-48 pl-1"
+>
+	<label for={ingredient.name} class="flex items-center space-x-2">
+		<input
+			id={ingredient.name}
+			class="checkbox disabled:opacity-25"
+			type="checkbox"
+			on:change={() => stockChange(ingredient.name)}
+			checked={inStock}
+		/>
+		<span class="uppercase">{ingredient.name}</span>
+	</label>
 </li>

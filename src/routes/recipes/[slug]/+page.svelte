@@ -1,15 +1,18 @@
 <script>
 	export let data;
-	//import img from '$';
 </script>
 
 <div class="grid gap-4 mt-12 justify-center">
 	<h1 class="text-xl text-center">{data.recipe.name}</h1>
 	<hr />
 	<ul class="list-disc list-inside w-72">
-		{#each data.recipe.ingredients as { ingredient, quantity }}
-			<li class={ingredient.inStock ? '' : 'text-error-800'}>{quantity} oz {ingredient.name}</li>
-		{/each}
+		{#if data.recipe.ingredients}
+			{#each data.recipe.ingredients as { ingredient, quantity }}
+				<li class={ingredient.inStock ? '' : 'text-error-800'}>{quantity} oz {ingredient.name}</li>
+			{/each}
+		{:else}
+			<li>No ingredient data listed</li>
+		{/if}
 	</ul>
 	<p class="w-72">
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, eos? Unde illum aliquam, dolores

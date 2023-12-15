@@ -1,19 +1,15 @@
 export const ingredients: Ingredient[] = [
-	{ name: 'Campari', inStock: true },
-	{ name: 'gin', inStock: true },
-	{ name: 'sweet vermouth', inStock: true },
-	{ name: 'bourbon', inStock: false },
-	{ name: 'green Chartreuse', inStock: false },
-	{ name: 'maraschino liqueur', inStock: false },
-	{ name: 'lime juice', inStock: false },
-	{ name: 'mezcal', inStock: true },
-	{ name: 'yellow Chartreuse', inStock: false },
-	{ name: 'Aperol', inStock: true }
+	{ unit: 'oz', name: 'Campari' },
+	{ unit: 'oz', name: 'gin' },
+	{ unit: 'oz', name: 'sweet vermouth' },
+	{ unit: 'oz', name: 'bourbon' },
+	{ unit: 'oz', name: 'green Chartreuse' },
+	{ unit: 'oz', name: 'maraschino liqueur' },
+	{ unit: 'oz', name: 'lime juice' },
+	{ unit: 'oz', name: 'mezcal' },
+	{ unit: 'oz', name: 'yellow Chartreuse' },
+	{ unit: 'oz', name: 'Aperol' }
 ];
-
-function findIngredient(name: string) {
-	return ingredients.find((i) => i.name == name) || { name: '-', inStock: false };
-}
 
 export const recipes: Recipe[] = [
 	{ name: 'Negroni', slug: 'negroni' },
@@ -22,31 +18,23 @@ export const recipes: Recipe[] = [
 	{ name: 'Naked and Famous', slug: 'naked-and-famous' }
 ];
 
-function findRecipe(name: string) {
-	return recipes.find((i) => i.name == name) || { name: '-', slug: '-' };
+function getIng(name: string) {
+	return ingredients.find((i) => i.name == name) || { name: '-', unit: '-', inStock: false };
 }
 
 export const ingredientLines: IngredientLine[] = [
-	{ recipe: findRecipe('Negroni'), ingredient: findIngredient('Campari'), quantity: 1 },
-	{ recipe: findRecipe('Negroni'), ingredient: findIngredient('gin'), quantity: 1 },
-	{ recipe: findRecipe('Negroni'), ingredient: findIngredient('sweet vermouth'), quantity: 1 },
-	{ recipe: findRecipe('Boulevardier'), ingredient: findIngredient('bourbon'), quantity: 1 },
-	{ recipe: findRecipe('Boulevardier'), ingredient: findIngredient('Campari'), quantity: 1 },
-	{ recipe: findRecipe('Boulevardier'), ingredient: findIngredient('sweet vermouth'), quantity: 1 },
-	{ recipe: findRecipe('Last Word'), ingredient: findIngredient('gin'), quantity: 1 },
-	{ recipe: findRecipe('Last Word'), ingredient: findIngredient('green Chartreuse'), quantity: 1 },
-	{
-		recipe: findRecipe('Last Word'),
-		ingredient: findIngredient('maraschino liqueur'),
-		quantity: 1
-	},
-	{ recipe: findRecipe('Last Word'), ingredient: findIngredient('lime juice'), quantity: 1 },
-	{ recipe: findRecipe('Naked and Famous'), ingredient: findIngredient('mezcal'), quantity: 1 },
-	{
-		recipe: findRecipe('Naked and Famous'),
-		ingredient: findIngredient('yellow Chartreuse'),
-		quantity: 1
-	},
-	{ recipe: findRecipe('Naked and Famous'), ingredient: findIngredient('Aperol'), quantity: 1 },
-	{ recipe: findRecipe('Naked and Famous'), ingredient: findIngredient('lime juice'), quantity: 1 }
+	{ recipe: 'negroni', ingredient: getIng('Campari'), quantity: 1 },
+	{ recipe: 'negroni', ingredient: getIng('gin'), quantity: 1 },
+	{ recipe: 'negroni', ingredient: getIng('sweet vermouth'), quantity: 1 },
+	{ recipe: 'boulevardier', ingredient: getIng('bourbon'), quantity: 1 },
+	{ recipe: 'boulevardier', ingredient: getIng('Campari'), quantity: 1 },
+	{ recipe: 'boulevardier', ingredient: getIng('sweet vermouth'), quantity: 1 },
+	{ recipe: 'last-word', ingredient: getIng('gin'), quantity: 1 },
+	{ recipe: 'last-word', ingredient: getIng('green Chartreuse'), quantity: 1 },
+	{ recipe: 'last-word', ingredient: getIng('maraschino liqueur'), quantity: 1 },
+	{ recipe: 'last-word', ingredient: getIng('lime juice'), quantity: 1 },
+	{ recipe: 'naked-and-famous', ingredient: getIng('mezcal'), quantity: 1 },
+	{ recipe: 'naked-and-famous', ingredient: getIng('yellow Chartreuse'), quantity: 1 },
+	{ recipe: 'naked-and-famous', ingredient: getIng('Aperol'), quantity: 1 },
+	{ recipe: 'naked-and-famous', ingredient: getIng('lime juice'), quantity: 1 }
 ];
