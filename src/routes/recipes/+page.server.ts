@@ -109,9 +109,7 @@ export const actions: Actions = {
 			);
 		};
 
-		let response = await createIngredientLines();
-
-		console.log(response);
+		await createIngredientLines();
 
 		throw redirect(303, `/recipes/${slug}`);
 	}
