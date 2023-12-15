@@ -1,6 +1,6 @@
 <script>
 	export let data;
-	import img from '$lib/images/naked-and-famous.jpg';
+	//import img from '$';
 </script>
 
 <div class="grid gap-4 mt-12 justify-center">
@@ -16,5 +16,5 @@
 		harum voluptas quo, blanditiis repellendus deserunt, libero nam aspernatur? Provident quo quis
 		suscipit repudiandae nemo neque.
 	</p>
-	<img src={img} class="h-48 mx-auto rounded-lg" alt={data.recipe.name} />
+	<img src="/images/{data.recipe.slug}.jpg" class="h-48 mx-auto rounded-lg" alt="Missing" />
 </div>
