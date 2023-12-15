@@ -9,11 +9,16 @@
 
 <div class="grid gap-4">
 	<h1 class="text-center pt-6">Recipes</h1>
-	<div class="w-72 mx-auto input-group input-group-divider grid-cols-[auto_1fr_auto]">
-		<div class="input-group-shim">(i)</div>
-		<input type="search" placeholder="Search..." bind:value={filterTerm} />
+	<div class="w-72 flex mx-auto gap-4">
+		<div class="mx-auto input-group input-group-divider grid-cols-[auto_1fr_auto]">
+			<div class="input-group-shim">(i)</div>
+			<input type="search" placeholder="Search..." bind:value={filterTerm} />
+		</div>
+		<div class="text-center">
+			<a href="/recipes/new" class="btn variant-filled">New</a>
+		</div>
 	</div>
-	<ul class="grid md:grid-cols-2 2xl:grid-cols-3 mx-auto gap-4 max-h-[32rem] overflow-y-scroll">
+	<ul class="grid md:grid-cols-2 2xl:grid-cols-3 mx-auto gap-4 max-h-[30rem] overflow-y-scroll">
 		{#each data.recipeList as { name, slug, ingredients, missing }}
 			<li class={name.toLocaleLowerCase().includes(filterTerm.toLowerCase()) ? '' : 'hidden'}>
 				<a href="/recipes/{slug}">
@@ -31,8 +36,5 @@
 				</a>
 			</li>
 		{/each}
-		<div class="text-center">
-			<a href="/recipes/new" class="btn variant-filled">New</a>
-		</div>
 	</ul>
 </div>
