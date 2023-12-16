@@ -8,7 +8,7 @@ export const ingredients: Ingredient[] = [
 	{ unit: 'oz', name: 'lime juice' },
 	{ unit: 'oz', name: 'mezcal' },
 	{ unit: 'oz', name: 'yellow Chartreuse' },
-	{ unit: 'oz', name: 'Aperol' }
+	{ unit: 'oz', name: 'Aperol' },
 ];
 
 export const recipes: Recipe[] = [

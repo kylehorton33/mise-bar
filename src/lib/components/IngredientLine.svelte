@@ -1,11 +1,10 @@
 <script lang="ts">
+	import { stockList } from '$lib/store';
 	export let filterTerm: string;
 	export let ingredient: Ingredient;
 
-	let inStock = false;
-
 	function stockChange(name: string) {
-		//stock change local storage
+		$stockList[name] = !$stockList[name]
 	}
 </script>
 
@@ -20,7 +19,7 @@
 			class="checkbox disabled:opacity-25"
 			type="checkbox"
 			on:change={() => stockChange(ingredient.name)}
-			checked={inStock}
+			checked={$stockList[ingredient.name]}
 		/>
 		<span class="uppercase">{ingredient.name}</span>
 	</label>
