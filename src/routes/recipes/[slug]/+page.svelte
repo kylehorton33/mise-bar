@@ -3,14 +3,14 @@
 	export let data;
 </script>
 
-<div class="grid gap-4 mt-12 justify-center">
+<div class="grid gap-4 mt-12 justify-center w-72 mx-auto">
 	<h1 class="text-xl text-center">{data.recipe.name}</h1>
 	<hr />
-	<ul class="list-disc list-inside w-72">
+	<ul class="list-disc list-inside">
 		{#if data.recipe.ingredients}
 			{#each data.recipe.ingredients as { ingredient, quantity }}
 				<li class={$stockList[ingredient.name] ? '' : 'text-error-800'}>
-					{quantity} oz {ingredient.name}
+					{quantity} {ingredient.unit} {ingredient.name}
 				</li>
 			{/each}
 		{:else}
