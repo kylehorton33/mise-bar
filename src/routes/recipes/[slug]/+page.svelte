@@ -18,9 +18,7 @@
 		{/if}
 	</ul>
 	<p class="w-72">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, eos? Unde illum aliquam, dolores
-		harum voluptas quo, blanditiis repellendus deserunt, libero nam aspernatur? Provident quo quis
-		suscipit repudiandae nemo neque.
+		{data.recipe.instructions}
 	</p>
-	<img src="/images/{data.recipe.slug}.jpg" class="h-48 mx-auto rounded-lg" alt="Missing" />
+	<img src="/images/{data.recipe.slug}.jpg" class="mt-10 h-48 mx-auto rounded-lg" alt="Missing" />
 </div>

@@ -12,10 +12,10 @@ export const ingredients: Ingredient[] = [
 ];
 
 export const recipes: Recipe[] = [
-	{ name: 'Negroni', slug: 'negroni' },
-	{ name: 'Boulevardier', slug: 'boulevardier' },
-	{ name: 'Last Word', slug: 'last-word' },
-	{ name: 'Naked and Famous', slug: 'naked-and-famous' }
+	{ name: 'Negroni', slug: 'negroni', instructions: 'Stir all ingredients over ice, then strain into an Old-Fashioned glass over 1 large ice cube. Garnish with 1 orange half-wheel.' },
+	{ name: 'Boulevardier', slug: 'boulevardier', instructions: 'Stir all ingredients over ice, then strain into a chilled coupe. Garnish with 1 brandied cherry.' },
+	{ name: 'Last Word', slug: 'last-word', instructions: 'Shake all ingredients with ice, then strain into a chilled coupe. Garnish with 2 brandied cherries.' },
+	{ name: 'Naked and Famous', slug: 'naked-and-famous', instructions: 'Shake all ingredients with ice, then strain into a chilled coupe. Garnish with 1 lime wedge.' }
 ];
 
 function getIng(name: string) {
@@ -26,9 +26,9 @@ export const ingredientLines: IngredientLine[] = [
 	{ recipe: 'negroni', ingredient: getIng('Campari'), quantity: 1 },
 	{ recipe: 'negroni', ingredient: getIng('gin'), quantity: 1 },
 	{ recipe: 'negroni', ingredient: getIng('sweet vermouth'), quantity: 1 },
-	{ recipe: 'boulevardier', ingredient: getIng('bourbon'), quantity: 1 },
-	{ recipe: 'boulevardier', ingredient: getIng('Campari'), quantity: 1 },
-	{ recipe: 'boulevardier', ingredient: getIng('sweet vermouth'), quantity: 1 },
+	{ recipe: 'boulevardier', ingredient: getIng('bourbon'), quantity: 1.5 },
+	{ recipe: 'boulevardier', ingredient: getIng('Campari'), quantity: 0.75 },
+	{ recipe: 'boulevardier', ingredient: getIng('sweet vermouth'), quantity: 0.75 },
 	{ recipe: 'last-word', ingredient: getIng('gin'), quantity: 1 },
 	{ recipe: 'last-word', ingredient: getIng('green Chartreuse'), quantity: 1 },
 	{ recipe: 'last-word', ingredient: getIng('maraschino liqueur'), quantity: 1 },
