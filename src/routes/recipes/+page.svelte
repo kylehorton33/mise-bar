@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { FilterSearch, RecipeCard } from '$lib/components';
 	import { stockList } from '$lib/store';
-	
+
 	export let data;
 	let filterTerm: string = '';
 
@@ -13,7 +13,7 @@
 		recipe.missing = missing(recipe);
 	});
 
-	data.recipes.sort((a: Recipe, b: Recipe) => a.missing - b.missing);
+	data.recipes.sort((a: Recipe, b: Recipe) => a.missing! - b.missing!);
 </script>
 
 <div class="grid gap-4">
