@@ -10,7 +10,9 @@
 		{#if data.recipe.ingredients}
 			{#each data.recipe.ingredients as { ingredient, quantity }}
 				<li class={$stockList[ingredient.name] ? '' : 'text-error-800'}>
-					{quantity} {ingredient.unit} {ingredient.name}
+					{quantity}
+					{ingredient.unit}
+					{ingredient.name}
 				</li>
 			{/each}
 		{:else}

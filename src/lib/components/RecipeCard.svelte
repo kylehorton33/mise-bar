@@ -8,9 +8,9 @@
 	}
 
 	function filterMatch(filterTerm: string): boolean {
-		const name = recipe.name.toLocaleLowerCase()
-		const ingredients = listIngredients(recipe.ingredients!)
-		return [name, ingredients].join().includes(filterTerm.toLowerCase())
+		const name = recipe.name.toLocaleLowerCase();
+		const ingredients = listIngredients(recipe.ingredients!);
+		return [name, ingredients].join().includes(filterTerm.toLowerCase());
 	}
 </script>
 

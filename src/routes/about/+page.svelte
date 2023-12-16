@@ -15,7 +15,7 @@
 				<span>In Stock</span>
 			</div>
 		</li>
-        <hr>
+		<hr />
 		<li class="text-xl">
 			Search <a href="/recipes" class="code">recipes</a> to see what you can make
 		</li>
@@ -29,7 +29,7 @@
 				<span>Ready to make</span>
 			</div>
 		</li>
-        <hr>
+		<hr />
 		<li class="text-xl">Enjoy!</li>
 	</ol>
 </div>
