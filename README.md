@@ -7,5 +7,5 @@
 
 ## Next steps? 12.16
 
-- add more ing and recipes
+- [DONE! 12.16] add more ing and recipes
 - user tests
