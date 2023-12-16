@@ -6,9 +6,15 @@
 	function listIngredients(ingredients: IngredientLine[]) {
 		return ingredients.map((i) => i.ingredient?.name.toLowerCase()).join(' | ');
 	}
+
+	function filterMatch(filterTerm: string): boolean {
+		const name = recipe.name.toLocaleLowerCase()
+		const ingredients = listIngredients(recipe.ingredients!)
+		return [name, ingredients].join().includes(filterTerm.toLowerCase())
+	}
 </script>
 
-<li class={recipe.name.toLocaleLowerCase().includes(filterTerm.toLowerCase()) ? '' : 'hidden'}>
+<li class={filterMatch(filterTerm) ? '' : 'hidden'}>
 	<a href="/recipes/{recipe.slug}">
 		<div class="block card card-hover p-2 w-72 h-32 mx-auto relative rounded-lg">
 			<span
