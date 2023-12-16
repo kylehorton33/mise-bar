@@ -2,6 +2,7 @@
 	import Search from '$lib/icons/Search.svelte';
 
 	export let filterTerm: string;
+	export let placeholder: string = 'Search...';
 </script>
 
 <div class="w-72 mx-auto">
@@ -9,6 +10,6 @@
 		<div class="input-group-shim">
 			<Search />
 		</div>
-		<input type="search" placeholder="Search..." bind:value={filterTerm} />
+		<input type="search" placeholder="{placeholder}" bind:value={filterTerm} />
 	</div>
 </div>

@@ -19,7 +19,7 @@
 <div class="grid gap-4">
 	<h1 class="text-center pt-6">Recipes</h1>
 
-	<FilterSearch bind:filterTerm />
+	<FilterSearch bind:filterTerm placeholder={`Search ${data.recipes.length} recipes...`}  />
 	<ul class="grid md:grid-cols-2 2xl:grid-cols-3 mx-auto gap-4 max-h-[30rem] overflow-y-scroll">
 		{#each data.recipes as recipe}
 			<RecipeCard bind:filterTerm bind:recipe />
