@@ -11,7 +11,7 @@
 <li
 	class="{ingredient.name.toLocaleLowerCase().includes(filterTerm.toLowerCase())
 		? ''
-		: 'hidden'} w-48 pl-1"
+		: 'hidden'} pl-8 w-64"
 >
 	<label for={ingredient.name} class="flex items-center space-x-2">
 		<input
