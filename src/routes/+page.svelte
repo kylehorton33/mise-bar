@@ -1,5 +1,5 @@
 <div class="mt-8 grid gap-4 justify-center">
-	<h1 class="h1 text-center">Welcome to <code class="text-3xl code">mise</code></h1>
+	<h1 class="h1 text-center">How to use:</h1>
 	<hr class="my-2" />
 	<ol class="list-decimal grid gap-8 text-center">
 		<li class="text-xl">
@@ -15,6 +15,7 @@
 				<span>In Stock</span>
 			</div>
 		</li>
+        <hr>
 		<li class="text-xl">
 			Search <a href="/recipes" class="code">recipes</a> to see what you can make
 		</li>
@@ -28,6 +29,7 @@
 				<span>Ready to make</span>
 			</div>
 		</li>
+        <hr>
 		<li class="text-xl">Enjoy!</li>
 	</ol>
 </div>
