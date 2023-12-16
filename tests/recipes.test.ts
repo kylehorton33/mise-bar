@@ -6,7 +6,7 @@ test.beforeEach('goto recipes page', async ({ page }) => {
 
 test('expected content', async ({ page }) => {
 	await expect(page.getByRole('heading', { name: 'Recipes' })).toBeVisible();
-	await expect(page.getByRole('listitem')).toHaveCount(4);
-	await page.getByRole('link', { name: 'negroni' }).click();
-	await expect(page.getByRole('heading', { name: 'Negroni' })).toBeVisible();
+	await expect(page.getByRole('listitem')).toHaveCount(12);
+	await page.getByRole('link', { name: 'Last Word' }).click();
+	await expect(page.getByRole('heading', { name: 'Last Word' })).toBeVisible();
 });
