@@ -7,9 +7,7 @@
 
 <div class="grid gap-4">
 	<h1 class="text-center pt-6">Ingredients</h1>
-	<div class="w-72 mx-auto">
-		<FilterSearch bind:filterTerm />
-	</div>
+	<FilterSearch bind:filterTerm />
 	<ul
 		class="grid mx-auto max-w-5xl md:grid-cols-3 xl:grid-cols-4 gap-4 justify-center max-h-[30rem] overflow-y-scroll"
 	>

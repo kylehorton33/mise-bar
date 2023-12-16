@@ -4,7 +4,7 @@
 	export let ingredient: Ingredient;
 
 	function stockChange(name: string) {
-		$stockList[name] = !$stockList[name]
+		$stockList[name] = !$stockList[name];
 	}
 </script>
 

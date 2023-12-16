@@ -27,8 +27,8 @@ interface Ingredient {
 interface Recipe {
 	name: string;
 	slug: string;
-	//missing?: number;
 	ingredients?: IngredientLine[] | null;
+	missing?: number;
 }
 interface IngredientLine {
 	recipe: string;

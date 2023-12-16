@@ -9,7 +9,9 @@
 	<ul class="list-disc list-inside w-72">
 		{#if data.recipe.ingredients}
 			{#each data.recipe.ingredients as { ingredient, quantity }}
-				<li class={$stockList[ingredient.name] ? '' : 'text-error-800'}>{quantity} oz {ingredient.name}</li>
+				<li class={$stockList[ingredient.name] ? '' : 'text-error-800'}>
+					{quantity} oz {ingredient.name}
+				</li>
 			{/each}
 		{:else}
 			<li>No ingredient data listed</li>
