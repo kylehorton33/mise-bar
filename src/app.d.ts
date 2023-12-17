@@ -17,30 +17,33 @@ declare namespace App {
 	// interface Platform {}
 }
 
-declare module '*.svelte';
+//declare module '*.svelte';
 
 interface Ingredient {
+	id: string;
 	name: string;
 	unit: string;
-	inStock?: boolean;
 }
+
 interface Recipe {
+	id: string;
 	name: string;
 	slug: string;
 	instructions: string;
-	ingredients?: IngredientLine[] | null;
+	image: string;
+	ingredients?: IngredientLineData[] | null;
 	missing?: number;
 }
+
 interface IngredientLine {
 	recipe: string;
-	ingredient: Ingredient;
+	ingredient: string;
 	quantity: number;
 }
 
 interface IngredientLineData {
+	recipe: string;
+	ingredient: Ingredient;
 	quantity: number;
-	ingredient: {
-		name: string;
-		inStock: boolean;
-	};
+	
 }

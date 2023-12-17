@@ -3,12 +3,23 @@ import { error } from '@sveltejs/kit';
 
 export const load: LayoutServerLoad = async ({ locals }) => {
 	try {
-		const ingredients = await locals.pb.collection('ingredients')
-			.getFullList({ sort: '-updated', fields: 'name' });
-		const recipes = await locals.pb.collection('recipes')
-			.getFullList({ sort: '-updated', fields: 'name' });
-		const ingredientLines = await locals.pb.collection('ingredientLines')
+		const recipes: Recipe[] = await locals.pb.collection('recipes')
+			.getFullList({ sort: 'name', fields: 'id, name, slug, instructions, image' });
+		const ingredients: Ingredient[] = await locals.pb.collection('ingredients')
+			.getFullList({ sort: 'name', fields: 'id, name, unit' });
+		const ingredientLines: IngredientLine[] = await locals.pb.collection('ingredientLines')
 			.getFullList({ sort: '-updated', fields: 'recipe, ingredient, quantity' });
+
+		recipes.forEach((recipe) => {
+			recipe.ingredients = ingredientLines.filter((line) => line.recipe === recipe.id).map((line) => {
+				const blankIng = { id: '', name: '-', unit: '-' }
+				let temp: IngredientLineData = Object.assign({}, {...line, ingredient: blankIng});
+				temp.ingredient = ingredients.find((i) => i.id === line.ingredient) || blankIng;
+				return temp
+			});
+
+		});
+
 		return { ingredients, recipes, ingredientLines }
 
 	} catch (e) {

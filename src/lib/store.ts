@@ -18,6 +18,6 @@ stockList.subscribe((val) => {
 
 
 // do you need to await async fetch in store?
-export const ingredients = writable();
-export const recipes = writable();
-export const ingredientLines = writable();
+export const ingredients = writable([] as Ingredient[]);
+export const recipes = writable([] as Recipe[]);
+export const ingredientLines = writable([] as IngredientLine[]);
