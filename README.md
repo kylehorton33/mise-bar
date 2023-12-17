@@ -1,11 +1,20 @@
-# Plans
+# Roadmap
 
-## ~~Bold new idea 2023.12.15~~
+## v0.1.0
 
-- [DONE!] revise most of app to be static and only track updates to ingredient stock through localStorage/stores
-- [DONE!] deploy v0.1.0 to vercel
+- forked from [`mise`](https://github.com/kylehorton33/mise)
+- static app with data and images loaded file asset `data.ts` or `static/images`
+- track stockList changes in `local storage`
 
-## Next steps? 12.16
+## v0.1.1
 
-- [DONE! 12.16] add more ing and recipes
-- user tests
+- added more data to `data.ts`
+
+## v0.1.2
+
+- switch back to PocketBase for data, keep `stockList` in `local storage`
+- load from `data.ts` to PocketBase with `npm run create`
+
+## Next steps?
+
+- `12.16` - user tests
