@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { readable, writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
 let localData;
@@ -15,3 +15,9 @@ stockList.subscribe((val) => {
 		localStorage.setItem('stockList', JSON.stringify(val));
 	}
 });
+
+
+// do you need to await async fetch in store?
+export const ingredients = writable();
+export const recipes = writable();
+export const ingredientLines = writable();

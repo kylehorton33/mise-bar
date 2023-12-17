@@ -2,6 +2,18 @@
 	import '../app.postcss';
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { Header, Footer, Sidebar } from '$lib/components';
+
+	import {ingredients, recipes, ingredientLines } from '$lib/store'
+
+	export let data;
+	
+	ingredients.set(data.ingredients)
+	recipes.set(data.recipes)
+	ingredientLines.set(data.ingredientLines)
+
+	//console.log($ingredients)
+	//console.log($recipes)
+	//console.log($ingredientLines)
 </script>
 
 <AppShell>
