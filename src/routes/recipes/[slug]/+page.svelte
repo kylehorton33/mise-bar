@@ -22,5 +22,11 @@
 	<p class="w-72">
 		{data.recipe.instructions}
 	</p>
-	<img src={data.recipe.image} class="mt-10 h-48 mx-auto rounded-lg" alt="Missing" />
+	{#if data.recipe.image}
+		<img src={data.recipe.image} class="mt-10 mx-auto rounded-lg" alt="Missing" />
+	{:else}
+		<div class="placeholder h-48 flex justify-center items-center">
+			missing image
+		</div>
+	{/if}
 </div>

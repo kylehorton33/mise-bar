@@ -10,7 +10,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 	if (recipe) {
 		try {
 			const record = await locals.pb.collection('recipes').getOne(recipe.id);
-			recipe.image = await locals.pb.files.getUrl(record, recipe.image)
+			recipe.image = await locals.pb.files.getUrl(record, recipe.image, {thumb: '300x300'})
 			return { recipe }
 		} catch (e) {
 			console.log('[ERROR /recipes/[slug]/+page.server]')
