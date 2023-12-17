@@ -22,5 +22,5 @@
 	<p class="w-72">
 		{data.recipe.instructions}
 	</p>
-	<img src="/images/{data.recipe.slug}.jpg" class="mt-10 h-48 mx-auto rounded-lg" alt="Missing" />
+	<img src={data.recipe.image} class="mt-10 h-48 mx-auto rounded-lg" alt="Missing" />
 </div>
