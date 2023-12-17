@@ -1,3 +1,7 @@
+<script>
+	import MissingIcon from "$lib/components/MissingIcon.svelte";
+
+</script>
 <div class="mt-8 grid gap-4 justify-center">
 	<h1 class="h1 text-center">How to use:</h1>
 	<hr class="my-2" />
@@ -21,11 +25,11 @@
 		</li>
 		<li class="justify-center flex gap-12">
 			<div>
-				<span class="badge variant-soft-warning">2</span>
+				<MissingIcon missing={2} position="mx-2" />
 				<span>Missing 2</span>
 			</div>
 			<div>
-				<span class="badge variant-filled-success">0</span>
+				<MissingIcon missing={0} position="mx-2" />
 				<span>Ready to make</span>
 			</div>
 		</li>
