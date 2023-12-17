@@ -4,7 +4,7 @@ import { error } from '@sveltejs/kit';
 export const load: LayoutServerLoad = async ({ locals }) => {
 	try {
 		const recipes: Recipe[] = await locals.pb.collection('recipes')
-			.getFullList({ sort: 'name', fields: 'id, name, slug, instructions, image' });
+			.getFullList({ sort: 'name', fields: 'id, name, slug, instructions, image, collectionId' });
 		const ingredients: Ingredient[] = await locals.pb.collection('ingredients')
 			.getFullList({ sort: 'name', fields: 'id, name, unit' });
 		const ingredientLines: IngredientLine[] = await locals.pb.collection('ingredientLines')
@@ -17,6 +17,7 @@ export const load: LayoutServerLoad = async ({ locals }) => {
 				temp.ingredient = ingredients.find((i) => i.id === line.ingredient) || blankIng;
 				return temp
 			});
+			recipe.image = `${import.meta.env.VITE_POCKETBASE_URL}/api/files/${recipe.collectionId}/${recipe.id}/${recipe.image}?thumb=300x300`
 
 		});
 
