@@ -1,4 +1,4 @@
-export const recipes: Recipe[] = [
+export const recipes = [
 	{
 		name: 'Negroni',
 		slug: 'negroni',
@@ -73,7 +73,7 @@ export const recipes: Recipe[] = [
 	}
 ];
 
-export const ingredients: Ingredient[] = [
+export const ingredients = [
 	{ unit: 'oz', name: 'Campari' },
 	{ unit: 'oz', name: 'gin' },
 	{ unit: 'oz', name: 'sweet vermouth' },
@@ -107,7 +107,7 @@ function getIng(name: string) {
 	return ingredients.find((i) => i.name == name) || { name: '-', unit: '-', inStock: false };
 }
 
-export const ingredientLines: IngredientLine[] = [
+export const ingredientLines = [
 	{ recipe: 'negroni', ingredient: getIng('Campari'), quantity: 1 },
 	{ recipe: 'negroni', ingredient: getIng('gin'), quantity: 1 },
 	{ recipe: 'negroni', ingredient: getIng('sweet vermouth'), quantity: 1 },

@@ -3,8 +3,8 @@
 
 	export let recipe: Recipe;
 
-	function listIngredients(ingredients: IngredientLine[]) {
-		return ingredients.map((i) => i.ingredient?.name.toLowerCase()).join(' | ');
+	function listIngredients(ingredients: IngredientLineData[]) {
+		return ingredients.map((i) => i.ingredient.name.toLowerCase()).join(' | ');
 	}
 
 	function filterMatch(filterTerm: string): boolean {
