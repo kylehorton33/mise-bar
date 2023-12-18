@@ -31,5 +31,6 @@
   - use `import { localStorageStore } from '@skeletonlabs/skeleton'`
 - feat 12.18: save `filterTerm` in `store.ts`. this will allow term to persist when swtiching between `/ingredients` and `/recipes` and when switching back from `/recipes` from `/recipe/[slug]`
   -  `12.17` - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]`
-- docs: create a `LICENSE.md`
-- 
+- docs 12.18: create a `LICENSE.md`
+- feat 12.18: improve `/about` page. maybe using:
+  - `import { Stepper, Step } from '@skeletonlabs/skeleton';`
