@@ -26,5 +26,10 @@
 - `12.16` - user tests
 - `12.17` - link tests up with PocketBase data
 - `12.17` - @kate press enter/search to exit input bar
-- `12.17` - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]`
 - `12.17` - modal for the single recipe pages? upside: will save filterTerm. downside: will lose direct links to pages?
+- fix 12.18: data seems to "expire" in mobile tab if left open for too long. try to recreate in `npm run preview` to look at console.logs. maybe reorder the sequencing of pb data load, localStorage, stores.
+  - use `import { localStorageStore } from '@skeletonlabs/skeleton'`
+- feat 12.18: save `filterTerm` in `store.ts`. this will allow term to persist when swtiching between `/ingredients` and `/recipes` and when switching back from `/recipes` from `/recipe/[slug]`
+  -  `12.17` - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]`
+- docs: create a `LICENSE.md`
+- 
