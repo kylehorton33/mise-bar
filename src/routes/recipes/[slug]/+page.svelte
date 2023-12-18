@@ -2,6 +2,7 @@
 	import { stockList } from '$lib/store';
 	import { fractionHTML } from '$lib/utils';
 	export let data;
+	console.log(data)
 </script>
 
 <div class="grid gap-4 mt-12 justify-center w-72 mx-auto">
