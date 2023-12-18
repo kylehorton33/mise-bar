@@ -34,3 +34,4 @@
 - docs 12.18: create a `LICENSE.md`
 - feat 12.18: improve `/about` page. maybe using:
   - `import { Stepper, Step } from '@skeletonlabs/skeleton';`
+- feat 12.18: explore TS class implementation and move some common operations to methods of `Ingredient` or `Recipe` classes
