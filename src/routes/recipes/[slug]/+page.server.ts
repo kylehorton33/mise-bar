@@ -1,18 +1,18 @@
 import type { PageServerLoad } from './$types';
-import { recipes } from '$lib/store';
+import { recipes } from '$lib/store'; // recipes are not loaded from store?
 import { get } from 'svelte/store';
 import { error } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async ({ locals, params }) => {
-	// get the recipe from store - maybe better to get directly from DB?
+export const load: PageServerLoad = async ({ params }) => {
+	// source of the issue is here. recipe does not 
 	const recipe = get(recipes).find((recipe) => recipe.slug === params.slug)
 
-	console.log(get(recipes))
+	console.log('[DEBUG "/recipes/[slug]/+page.server.ts" get(recipes) =>]', get(recipes)[0])
 
 	if (recipe) {
 		return { recipe }
 	} else {
-		console.log('[ERROR /recipes/[slug]/+page.server]: no recipe found')
-		throw error(404)
+		//console.log('[ERROR /recipes/[slug]/+page.server]: no recipe found')
+		//throw error(404)
 	}
 };
