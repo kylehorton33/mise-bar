@@ -18,12 +18,12 @@
 ## :construction: In Progress
 
 - `12.17` - work on image loading bugs, save imageUrl path directly when creating store
+- `12.17` - fraction display raw tag: `{@html exp}`
 
 ## Next steps?
 
 - `12.16` - user tests
 - `12.17` - link tests up with PocketBase data
-- `12.17` - fraction display raw tag: `{@html exp}`
 - `12.17` - @kate press enter/search to exit input bar
 - `12.17` - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]`
 - `12.17` - modal for the single recipe pages? upside: will save filterTerm. downside: will lose direct links to pages?
