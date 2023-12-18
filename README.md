@@ -24,3 +24,4 @@
 - feat 12.18: explore TS class implementation and move some common operations to methods of `Ingredient` or `Recipe` classes
 - refactor 12.18: maybe reorder the sequencing of pb data load, localStorage, stores.
   - use `import { localStorageStore } from '@skeletonlabs/skeleton'`
+- feat: add a new favicon/update titles on pages: `mise` `mise | recipes`
