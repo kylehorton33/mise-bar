@@ -8,6 +8,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	const recipe = get(recipes).find((recipe) => recipe.slug === params.slug)
 
 	console.log('[DEBUG "/recipes/[slug]/+page.server.ts" get(recipes) =>]', get(recipes)[0])
+	console.log('[DEBUG "/recipes/[slug]/+page.server.ts" recipe =>]', recipe)
 
 	if (recipe) {
 		return { recipe }
