@@ -9,7 +9,6 @@
 - fix: data seems to "expire" in mobile tab if left open for too long. (12.18)
   - found source of issue `+page.server.ts` load of store not working if tab left open too long
   - fixed with reading `recipe` directly from `$recipes` store with `$page.params.slug`
-try to recreate in `npm run preview` to look at console.logs.
 - docs: create a `LICENSE.md` (12.18)
 
 ## :construction: TODO

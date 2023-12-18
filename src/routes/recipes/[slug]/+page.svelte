@@ -2,12 +2,8 @@
 	import { page } from '$app/stores';
 	import { recipes, stockList } from '$lib/store';
 	import { fractionHTML } from '$lib/utils';
-	//export let data;
-	//console.log('[DEBUG $page.params.slug => ]', $page.params.slug);
+	
 	const recipe = $recipes.find((recipe) => recipe.slug === $page.params.slug);
-	//console.log('[DEBUG "/recipes/[slug]/+page.svelte" data.recipes[0] =>]', data.recipes[0]);
-	//console.log('[DEBUG "/recipes/[slug]/+page.svelte" data.recipe =>]', data.recipe);
-	//console.log('[DEBUG "/recipes/[slug]/+page.svelte" recipe =>]', recipe);
 </script>
 
 {#if recipe}
