@@ -1,4 +1,6 @@
 <script lang="ts">
+	import MissingIcon from "./MissingIcon.svelte";
+
 	export let filterTerm: string;
 
 	export let recipe: Recipe;
@@ -17,11 +19,7 @@
 <li class={filterMatch(filterTerm) ? '' : 'hidden'}>
 	<a href="/recipes/{recipe.slug}">
 		<div class="block card card-hover p-2 w-72 h-32 mx-auto relative rounded-lg">
-			<span
-				class="badge {recipe.missing
-					? 'variant-soft-warning'
-					: 'variant-filled-success'} absolute top-3 right-3">{recipe.missing}</span
-			>
+			<MissingIcon missing={recipe.missing || 0} position='absolute top-3 right-3' />
 			<header class="card-header uppercase">{recipe.name}</header>
 			{#if recipe.ingredients}
 				<section class="p-4 text-xs">

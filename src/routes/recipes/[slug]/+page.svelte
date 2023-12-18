@@ -1,5 +1,6 @@
 <script>
 	import { stockList } from '$lib/store';
+	import { fractionHTML } from '$lib/utils';
 	export let data;
 </script>
 
@@ -10,7 +11,7 @@
 		{#if data.recipe.ingredients}
 			{#each data.recipe.ingredients as { ingredient, quantity }}
 				<li class={$stockList[ingredient.name] ? '' : 'text-error-800'}>
-					{quantity}
+					{@html fractionHTML(quantity)}
 					{ingredient.unit}
 					{ingredient.name}
 				</li>
@@ -25,8 +26,6 @@
 	{#if data.recipe.image}
 		<img src={data.recipe.image} class="mt-10 mx-auto rounded-lg" alt="Missing" />
 	{:else}
-		<div class="placeholder h-48 flex justify-center items-center">
-			missing image
-		</div>
+		<div class="placeholder h-48 flex justify-center items-center">missing image</div>
 	{/if}
 </div>

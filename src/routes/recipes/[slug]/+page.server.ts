@@ -8,14 +8,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 	const recipe = get(recipes).find((recipe) => recipe.slug === params.slug)
 
 	if (recipe) {
-		try {
-			const record = await locals.pb.collection('recipes').getOne(recipe.id);
-			recipe.image = await locals.pb.files.getUrl(record, recipe.image, {thumb: '300x300'})
-			return { recipe }
-		} catch (e) {
-			console.log('[ERROR /recipes/[slug]/+page.server]')
-			throw error(500)
-		}
+		return { recipe }
 	} else {
 		console.log('[ERROR /recipes/[slug]/+page.server]: no recipe found')
 		throw error(404)

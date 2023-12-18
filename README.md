@@ -15,6 +15,16 @@
 - switch back to PocketBase for data, keep `stockList` in `local storage`
 - load from `data.ts` to PocketBase with `npm run create`
 
-## Next steps?
+## v0.1.3
+
+- fix image loading bugs. save imageUrl path directly when creating store
+- fractional display raw tag: `{@html exp}`
+- sort ingredients by name (case insensitive)
+
+## :construction: In Progress
 
 - `12.16` - user tests
+- `12.17` - link tests up with PocketBase data
+- `12.17` - @kate press enter/search to exit input bar
+- `12.17` - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]`
+- `12.17` - modal for the single recipe pages? upside: will save filterTerm. downside: will lose direct links to pages?

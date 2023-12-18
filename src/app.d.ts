@@ -31,7 +31,8 @@ interface Recipe {
 	slug: string;
 	instructions: string;
 	image: string;
-	ingredients?: IngredientLineData[] | null;
+	collectionId: string;
+	ingredients?: IngredientLineData[];
 	missing?: number;
 }
 
@@ -45,5 +46,4 @@ interface IngredientLineData {
 	recipe: string;
 	ingredient: Ingredient;
 	quantity: number;
-	
 }
