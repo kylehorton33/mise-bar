@@ -19,6 +19,7 @@
 
 - `12.17` - work on image loading bugs, save imageUrl path directly when creating store
 - `12.17` - fraction display raw tag: `{@html exp}`
+- sort ingredients by name (case insensitive)
 
 ## Next steps?
 
