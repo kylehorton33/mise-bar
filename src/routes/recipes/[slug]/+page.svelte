@@ -2,10 +2,12 @@
 	import { page } from '$app/stores';
 	import { recipes, stockList } from '$lib/store';
 	import { fractionHTML } from '$lib/utils';
-	export let data;
-	console.log('[DEBUG $page.params.slug => ]', $page.params.slug);
+	//export let data;
+	//console.log('[DEBUG $page.params.slug => ]', $page.params.slug);
 	const recipe = $recipes.find((recipe) => recipe.slug === $page.params.slug);
-	console.log('[DEBUG "/recipes/[slug]/+page.svelte" data =>]', data.recipes[0]);
+	//console.log('[DEBUG "/recipes/[slug]/+page.svelte" data.recipes[0] =>]', data.recipes[0]);
+	//console.log('[DEBUG "/recipes/[slug]/+page.svelte" data.recipe =>]', data.recipe);
+	//console.log('[DEBUG "/recipes/[slug]/+page.svelte" recipe =>]', recipe);
 </script>
 
 {#if recipe}
@@ -35,8 +37,12 @@
 		{/if}
 	</div>
 {:else}
-	<h1>$page.params</h1>
-	<pre>{JSON.stringify($page.params, null, 2)}</pre>
-	<h1>data.recipes[0]</h1>
-	<pre>{JSON.stringify(data.recipes[0], null, 2)}</pre>
+	<div class="flex flex-col text-center mt-10 space-y-6">
+		<h1 class="h3">No recipe found matching:</h1>
+		<h3 class="h5">"{$page.params.slug}"</h3>
+		<div>
+			<a href="/recipes" class="btn variant-filled-primary">Take me back to all recipes</a>
+		</div>
+	</div>
+	
 {/if}
