@@ -1,15 +1,15 @@
-## Latest Version (0.1.3) - [Changelog](CHANGELOG.md) of old versions
+## :rocket: Latest Version (0.1.3) - [Changelog](CHANGELOG.md) of old versions
 
 - fix image loading bugs. save imageUrl path directly when creating store
 - fractional display raw tag: `{@html exp}`
 - sort ingredients by name (case insensitive)
 
-## :construction: In Progress
+## :soon: v0.1.4
 
 - fix 12.18: data seems to "expire" in mobile tab if left open for too long. try to recreate in `npm run preview` to look at console.logs. maybe reorder the sequencing of pb data load, localStorage, stores.
   - use `import { localStorageStore } from '@skeletonlabs/skeleton'`
 
-## TODO
+## :construction: TODO
 
 - `12.16` - user tests
 - `12.17` - link tests up with PocketBase data
