@@ -6,7 +6,11 @@
 	export let route: string;
 </script>
 
-<TabAnchor selected={$page.url.pathname == `/${route}`} href="/{route}" title={route}>
+<TabAnchor
+	selected={$page.url.pathname == `/${route}`}
+	href="/{route}"
+	title={route}
+>
 	<svelte:fragment slot="lead">
 		<div class="flex justify-center">
 			<Icon icon={route} />

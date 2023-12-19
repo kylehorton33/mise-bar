@@ -9,7 +9,9 @@
 </script>
 
 <div class="p-8 md:max-w-lg mx-auto">
-	<h1 class="h1 text-center py-8">How to use <span class="code text-2xl">mise</span>:</h1>
+	<h1 class="h1 text-center py-8">
+		How to use <span class="code text-2xl">mise</span>:
+	</h1>
 	<Stepper
 		on:complete={onComplete}
 		badge="variant-outline-primary text-lg px-3"
@@ -47,9 +49,7 @@
 			</li>
 		</Step>
 		<Step regionHeader="h-8" regionContent="h-32">
-			<svelte:fragment slot="header"
-				><span></span></svelte:fragment
-			>
+			<svelte:fragment slot="header"><span></span></svelte:fragment>
 			<div class="flex items-center justify-center">
 				<h1 class="text-2xl font-bold">Mix and Enjoy!</h1>
 			</div>

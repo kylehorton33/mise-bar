@@ -108,91 +108,119 @@ const ingredients = [
 ];
 
 function getIng(name) {
-	return ingredients.find((i) => i.name == name) || { name: '-', unit: '-', inStock: false };
+	return (
+		ingredients.find((i) => i.name == name) || {
+			name: '-',
+			unit: '-',
+			inStock: false
+		}
+	);
 }
 
 const ingredientLines = [
-    // Negroni
+	// Negroni
 	{ recipe: 'j88ygws6q3jzbxr', ingredient: getIng('Campari'), quantity: 1 },
 	{ recipe: 'j88ygws6q3jzbxr', ingredient: getIng('gin'), quantity: 1 },
-	{ recipe: 'j88ygws6q3jzbxr', ingredient: getIng('sweet vermouth'), quantity: 1 },
+	{
+		recipe: 'j88ygws6q3jzbxr',
+		ingredient: getIng('sweet vermouth'),
+		quantity: 1
+	},
 	// Boulevardier
-    { recipe: '05cx5y6wsd2jn0a', ingredient: 'kjck2sy8mzwhmqc', quantity: 1.5 },
+	{ recipe: '05cx5y6wsd2jn0a', ingredient: 'kjck2sy8mzwhmqc', quantity: 1.5 },
 	{ recipe: '05cx5y6wsd2jn0a', ingredient: getIng('Campari'), quantity: 0.75 },
-	{ recipe: '05cx5y6wsd2jn0a', ingredient: getIng('sweet vermouth'), quantity: 0.75 },
+	{
+		recipe: '05cx5y6wsd2jn0a',
+		ingredient: getIng('sweet vermouth'),
+		quantity: 0.75
+	},
 	// Last Word
-    { recipe: 'tq1jjguoem6k312', ingredient: getIng('gin'), quantity: 0.75 },
-	{ recipe: 'tq1jjguoem6k312', ingredient: getIng('green Chartreuse'), quantity: 0.75 },
-	{ recipe: 'tq1jjguoem6k312', ingredient: getIng('maraschino liqueur'), quantity: 0.75 },
-	{ recipe: 'tq1jjguoem6k312', ingredient: getIng('lime juice'), quantity: 0.75 },
-    // Naked and Famous
+	{ recipe: 'tq1jjguoem6k312', ingredient: getIng('gin'), quantity: 0.75 },
+	{
+		recipe: 'tq1jjguoem6k312',
+		ingredient: getIng('green Chartreuse'),
+		quantity: 0.75
+	},
+	{
+		recipe: 'tq1jjguoem6k312',
+		ingredient: getIng('maraschino liqueur'),
+		quantity: 0.75
+	},
+	{
+		recipe: 'tq1jjguoem6k312',
+		ingredient: getIng('lime juice'),
+		quantity: 0.75
+	},
+	// Naked and Famous
 	{ recipe: 'tlipkltk8bec9bi', ingredient: 'wco7ue4sm7y006v', quantity: 0.75 },
 	{ recipe: 'tlipkltk8bec9bi', ingredient: 'ojr9uq9o67ybvru', quantity: 0.75 },
 	{ recipe: 'tlipkltk8bec9bi', ingredient: 'f4uq4leal89dkpo', quantity: 0.75 },
 	{ recipe: 'tlipkltk8bec9bi', ingredient: 'yj4vzf02ppkjvlb', quantity: 0.75 },
 	// Paper Plane
-    { recipe: '17jcreh06ct186t', ingredient: 'kjck2sy8mzwhmqc', quantity: 0.75 },
+	{ recipe: '17jcreh06ct186t', ingredient: 'kjck2sy8mzwhmqc', quantity: 0.75 },
 	{ recipe: '17jcreh06ct186t', ingredient: 'f4uq4leal89dkpo', quantity: 0.75 },
 	{ recipe: '17jcreh06ct186t', ingredient: 'buujjbouuim5ps2', quantity: 0.75 },
 	{ recipe: '17jcreh06ct186t', ingredient: 'ii06k2u2p43jw72', quantity: 0.75 },
 	// Old-Fashioned
-    { recipe: '4cop4yvifpzunh9', quantity: 1, ingredient: '85wwxojsmskxje5' },
+	{ recipe: '4cop4yvifpzunh9', quantity: 1, ingredient: '85wwxojsmskxje5' },
 	{ recipe: '4cop4yvifpzunh9', quantity: 2, ingredient: 'wob391xyouj390g' },
 	{ recipe: '4cop4yvifpzunh9', quantity: 2, ingredient: 'kjck2sy8mzwhmqc' },
 	// Sazerac
-    { recipe: 'veisl8sjai4i6xa', quantity: 0.25, ingredient: 'cfroiktuz05s2zi' },
+	{ recipe: 'veisl8sjai4i6xa', quantity: 0.25, ingredient: 'cfroiktuz05s2zi' },
 	{ recipe: 'veisl8sjai4i6xa', quantity: 1.5, ingredient: 'jwcqcf1g4ag5p7q' },
 	{ recipe: 'veisl8sjai4i6xa', quantity: 0.5, ingredient: 'u93b4n40ncvjbrv' },
 	{ recipe: 'veisl8sjai4i6xa', quantity: 1, ingredient: '34c8ja4sh8ly98j' },
 	{ recipe: 'veisl8sjai4i6xa', quantity: 4, ingredient: 'u6t18ptsdgdvk4h' },
 	{ recipe: 'veisl8sjai4i6xa', quantity: 1, ingredient: 'wob391xyouj390g' },
 	// Manhattan
-    { recipe: 'eycesvzoyzppuxu', quantity: 2, ingredient: 'jwcqcf1g4ag5p7q' },
+	{ recipe: 'eycesvzoyzppuxu', quantity: 2, ingredient: 'jwcqcf1g4ag5p7q' },
 	{ recipe: 'eycesvzoyzppuxu', quantity: 1, ingredient: '2r85p9mk3o2573k' },
 	{ recipe: 'eycesvzoyzppuxu', quantity: 2, ingredient: 'wob391xyouj390g' },
 	// White Negroni
-    { recipe: 'symsbcyvywoo28b', quantity: 1.5, ingredient: 'ymrqonytbxfocpe' },
+	{ recipe: 'symsbcyvywoo28b', quantity: 1.5, ingredient: 'ymrqonytbxfocpe' },
 	{ recipe: 'symsbcyvywoo28b', quantity: 1, ingredient: 'r1y34s61zuinp4e' },
 	{ recipe: 'symsbcyvywoo28b', quantity: 0.75, ingredient: '05x92u802vtq1h1' },
 	// Daiquiri
-    { recipe: 'ltwzx3b0d32vvyq', quantity: 2, ingredient: '9tiabng6p0h1de4' },
+	{ recipe: 'ltwzx3b0d32vvyq', quantity: 2, ingredient: '9tiabng6p0h1de4' },
 	{ recipe: 'ltwzx3b0d32vvyq', quantity: 0.75, ingredient: 'yj4vzf02ppkjvlb' },
 	{ recipe: 'ltwzx3b0d32vvyq', quantity: 0.75, ingredient: 'stxdxunggqvg1fw' },
 	// Gin and Tonic
-    { recipe: 'vixeh4zuuhlqfkz', quantity: 2, ingredient: 'ymrqonytbxfocpe' },
+	{ recipe: 'vixeh4zuuhlqfkz', quantity: 2, ingredient: 'ymrqonytbxfocpe' },
 	{ recipe: 'vixeh4zuuhlqfkz', quantity: 4, ingredient: 'mf5vdv2dvducl1q' },
 	// Aperol Spritz
-    { recipe: '9vdkdvepch3twni', quantity: 2, ingredient: 'f4uq4leal89dkpo' },
+	{ recipe: '9vdkdvepch3twni', quantity: 2, ingredient: 'f4uq4leal89dkpo' },
 	{ recipe: '9vdkdvepch3twni', quantity: 3, ingredient: '7r4xjm5xraqk9v1' },
 	{ recipe: '9vdkdvepch3twni', quantity: 1, ingredient: '19bf8j9jcwgpvcb' }
 ];
 
-console.log('CREATING RECIPES')
+console.log('CREATING RECIPES');
 recipes.forEach(async (data) => {
-    try {
-        //await pb.collection('recipes').create(data, { requestKey: data.slug });
-        //console.log(`[${data.name}]: OK`)
-    } catch (error) {
-        console.log(`[${data.name}]: `, error.response.message)
-    }
-})
+	try {
+		//await pb.collection('recipes').create(data, { requestKey: data.slug });
+		//console.log(`[${data.name}]: OK`)
+	} catch (error) {
+		console.log(`[${data.name}]: `, error.response.message);
+	}
+});
 
-console.log('CREATING INGREDIENTS')
+console.log('CREATING INGREDIENTS');
 ingredients.forEach(async (data) => {
-    try {
-        //await pb.collection('ingredients').create(data, { requestKey: data.name });
-        //console.log(`[${data.name}]: OK`)
-    } catch (error) {
-        console.log(`[${data.name}]: `, error.response.data)
-    }
-})
+	try {
+		//await pb.collection('ingredients').create(data, { requestKey: data.name });
+		//console.log(`[${data.name}]: OK`)
+	} catch (error) {
+		console.log(`[${data.name}]: `, error.response.data);
+	}
+});
 
-console.log('CREATING LINES')
+console.log('CREATING LINES');
 ingredientLines.forEach(async (data) => {
-    try {
-        await pb.collection('ingredientLines').create(data, { requestKey: `${data.recipe}${data.ingredient}` });
-        console.log(`[${data.recipe}]: OK`)
-    } catch (error) {
-        console.log(`[${data.recipe}]: `, error.response.data)
-    }
-})
+	try {
+		await pb
+			.collection('ingredientLines')
+			.create(data, { requestKey: `${data.recipe}${data.ingredient}` });
+		console.log(`[${data.recipe}]: OK`);
+	} catch (error) {
+		console.log(`[${data.recipe}]: `, error.response.data);
+	}
+});

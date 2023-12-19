@@ -5,7 +5,10 @@
 	let filterTerm: string = '';
 
 	function missing(recipe: Recipe) {
-		return recipe.ingredients?.reduce((n, l) => n + +!$stockList[l.ingredient.name], 0);
+		return recipe.ingredients?.reduce(
+			(n, l) => n + +!$stockList[l.ingredient.name],
+			0
+		);
 	}
 
 	$recipes.forEach((recipe) => {
@@ -18,8 +21,14 @@
 <div class="grid gap-4">
 	<h1 class="text-center pt-6">Recipes</h1>
 
-	<FilterSearch bind:filterTerm placeholder={`Search ${$recipes.length} recipes...`} />
-	<ul class="grid md:grid-cols-2 2xl:grid-cols-3 mx-auto gap-4 max-h-[30rem] overflow-y-scroll">
+	<FilterSearch
+		bind:filterTerm
+		placeholder={`Search ${$recipes.length} recipes...`}
+	/>
+	<ul
+		class="grid md:grid-cols-2 2xl:grid-cols-3 mx-auto gap-4
+			max-h-[30rem] overflow-y-scroll"
+	>
 		{#each $recipes as recipe}
 			<RecipeCard bind:filterTerm bind:recipe />
 		{/each}

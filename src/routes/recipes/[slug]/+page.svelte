@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { recipes, stockList } from '$lib/store';
 	import { fractionHTML } from '$lib/utils';
-	
+
 	const recipe = $recipes.find((recipe) => recipe.slug === $page.params.slug);
 </script>
 
@@ -29,7 +29,9 @@
 		{#if recipe.image}
 			<img src={recipe.image} class="mt-10 mx-auto rounded-lg" alt="Missing" />
 		{:else}
-			<div class="placeholder h-48 flex justify-center items-center">missing image</div>
+			<div class="placeholder h-48 flex justify-center items-center">
+				missing image
+			</div>
 		{/if}
 	</div>
 {:else}
@@ -37,8 +39,9 @@
 		<h1 class="h3">No recipe found matching:</h1>
 		<h3 class="h5">"{$page.params.slug}"</h3>
 		<div>
-			<a href="/recipes" class="btn variant-filled-primary">Take me back to all recipes</a>
+			<a href="/recipes" class="btn variant-filled-primary"
+				>Take me back to all recipes</a
+			>
 		</div>
 	</div>
-	
 {/if}
