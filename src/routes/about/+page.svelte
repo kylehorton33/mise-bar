@@ -1,39 +1,58 @@
 <script>
-	import MissingIcon from "$lib/components/MissingIcon.svelte";
+	import { Stepper, Step } from '@skeletonlabs/skeleton';
+	import MissingIcon from '$lib/components/MissingIcon.svelte';
+	import { goto } from '$app/navigation';
 
+	function onComplete() {
+		goto('/ingredients');
+	}
 </script>
-<div class="mt-8 grid gap-4 justify-center">
-	<h1 class="h1 text-center">How to use:</h1>
-	<hr class="my-2" />
-	<ol class="list-decimal grid gap-8 px-12">
-		<li class="text-xl">
-			Mark which <a href="/ingredients" class="code">ingredients</a> you have
-		</li>
-		<li class="justify-center flex gap-12">
-			<div>
-				<input class="checkbox" disabled type="checkbox" />
-				<span>Out of Stock</span>
+
+<div class="p-8 md:max-w-lg mx-auto">
+	<h1 class="h1 text-center py-8">How to use <span class="code text-2xl">mise</span>:</h1>
+	<Stepper
+		start={2}
+		on:complete={onComplete}
+		badge="variant-outline-primary text-lg px-3"
+		active="variant-filled-primary text-lg"
+	>
+		<Step regionHeader="h-8" regionContent="h-32">
+			<svelte:fragment slot="header"
+				>Mark which <span class="code text-xl">ingredients</span> you have</svelte:fragment
+			>
+			<li class="justify-center flex flex-col gap-6 pt-10 text-center">
+				<div>
+					<input class="checkbox" disabled type="checkbox" />
+					<span class="px-2">Out of Stock</span>
+				</div>
+				<div>
+					<input class="checkbox" disabled type="checkbox" checked />
+					<span class="px-2">In Stock</span>
+				</div>
+			</li>
+		</Step>
+		<Step regionHeader="h-8" regionContent="h-32">
+			<svelte:fragment slot="header"
+				>See which <span class="code text-xl">recipes</span> you can make</svelte:fragment
+			>
+			<li class="justify-center flex flex-col gap-6 pt-10 text-center">
+				<div>
+					<MissingIcon missing={2} position="mx-2" />
+					<span>Missing 2 Ingredients</span>
+				</div>
+				<div>
+					<MissingIcon missing={0} position="mx-2" />
+					<span>Ready to make</span>
+				</div>
+			</li>
+		</Step>
+		<Step regionHeader="h-8" regionContent="h-32">
+			<svelte:fragment slot="header"
+				><span></span></svelte:fragment
+			>
+			<div class="flex items-center justify-center">
+				<h1 class="text-2xl font-bold">Mix and Enjoy!</h1>
 			</div>
-			<div>
-				<input class="checkbox" disabled type="checkbox" checked />
-				<span>In Stock</span>
-			</div>
-		</li>
-		<hr />
-		<li class="text-xl">
-			Search <a href="/recipes" class="code">recipes</a> to see what you can make
-		</li>
-		<li class="justify-center flex gap-12">
-			<div>
-				<MissingIcon missing={2} position="mx-2" />
-				<span>Missing 2</span>
-			</div>
-			<div>
-				<MissingIcon missing={0} position="mx-2" />
-				<span>Ready to make</span>
-			</div>
-		</li>
-		<hr />
-		<li class="text-xl">Enjoy!</li>
-	</ol>
+		</Step>
+	</Stepper>
 </div>
