@@ -16,6 +16,7 @@
 		active="variant-filled-primary text-lg"
 	>
 		<Step regionHeader="h-8" regionContent="h-32">
+			<svelte:fragment slot="navigation"><span></span></svelte:fragment>
 			<svelte:fragment slot="header"
 				>Mark which <span class="code text-xl">ingredients</span> you have</svelte:fragment
 			>
