@@ -1,10 +1,4 @@
-## :rocket: Latest Version (0.1.3) - [CHANGELOG](CHANGELOG.md)
-
-- fix image loading bugs. save imageUrl path directly when creating store
-- fractional display raw tag: `{@html exp}`
-- sort ingredients by name (case insensitive)
-
-## :soon: v0.1.4
+## :rocket: Current v0.1.4 - [CHANGELOG](CHANGELOG.md)
 
 - fix: data seems to "expire" in mobile tab if left open for too long. (12.18)
   - found source of issue `+page.server.ts` load of store not working if tab left open too long
@@ -12,6 +6,8 @@
 - docs: create a `LICENSE.md` (12.18)
 - feat: improved `/about` page. using: `{ Stepper, Step }` from `'@skeletonlabs/skeleton'` (12.18)
 - feat: @kate press enter/search to exit input bar (12.17)
+
+## :soon: v0.1.5
 
 ## :construction: TODO
 

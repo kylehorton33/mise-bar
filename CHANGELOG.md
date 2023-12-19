@@ -1,4 +1,10 @@
-# Change Log
+# CHANGELOG
+
+## v0.1.3
+
+- fix image loading bugs. save imageUrl path directly when creating store
+- fractional display raw tag: `{@html exp}`
+- sort ingredients by name (case insensitive)
 
 ## v0.1.2
 
