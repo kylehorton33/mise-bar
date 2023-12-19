@@ -25,4 +25,8 @@
 - launch: user tests (12.17)
 - feat: sort recipe cards by `% missing INGs` rather than just `n missing`.current system prioritizes all recipes with 1 missing ingredient; even if that's just: gin, tonic (missing gin). better to show a recipe with 4 ingredients missing 1 (75%) first. would also want to sort recipes by greatest to least ingredients.
 - feat: sort ings on recipe by: ?. quantity? this won't work easily because of different units. use in recipe? this won't work easily because i'd need new fields to define. custom order field on `ingredientLines`?
-
+- feat: improve `/about` by using some real world examples
+  - in stock: gin, green chartreuse, lime juice, maraschino liqueur
+  - out: tequila, lime juice, orange liqueur
+  - ==> can make: Last Word {0}
+  - ==> mising: Margarita {0}
