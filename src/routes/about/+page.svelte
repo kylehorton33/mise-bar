@@ -20,7 +20,7 @@
 		<Step regionHeader="h-8" regionContent="h-32">
 			<svelte:fragment slot="navigation"><span></span></svelte:fragment>
 			<svelte:fragment slot="header"
-				>Mark which <span class="code text-xl">ingredients</span> you have</svelte:fragment
+				>Stock your <span class="code text-xl">ingredients</span> :</svelte:fragment
 			>
 			<li class="justify-center flex flex-col gap-6 pt-10 text-center">
 				<div>
