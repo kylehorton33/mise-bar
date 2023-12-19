@@ -1,5 +1,5 @@
-## :rocket: Current v0.1.4 - [CHANGELOG](CHANGELOG.md)
-
+## :rocket: Current v0.1.4
+- 2023-12-18
 - fix: data seems to "expire" in mobile tab if left open for too long. (12.18)
   - found source of issue `+page.server.ts` load of store not working if tab left open too long
   - fixed with reading `recipe` directly from `$recipes` store with `$page.params.slug`
@@ -30,3 +30,6 @@
   - out: tequila, lime juice, orange liqueur
   - ==> can make: Last Word {0}
   - ==> mising: Margarita {0}
+
+
+- Past Versions: [0.1.0](CHANGELOG.md#v010) [0.1.1](CHANGELOG.md#v011) [0.1.2](CHANGELOG.md#v012) [0.1.3](CHANGELOG.md#v013)
