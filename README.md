@@ -11,11 +11,11 @@
   - fixed with reading `recipe` directly from `$recipes` store with `$page.params.slug`
 - docs: create a `LICENSE.md` (12.18)
 - feat: improved `/about` page. using: `{ Stepper, Step }` from `'@skeletonlabs/skeleton'` (12.18)
+- feat: @kate press enter/search to exit input bar (12.17)
 
 ## :construction: TODO
 
 - test: link tests up with PocketBase data (12.17)
-- feat: @kate press enter/search to exit input bar (12.17)
 - feat: modal for the single recipe pages? upside: will save filterTerm. downside: will lose direct links to pages? (12.17)
 - feat: save `filterTerm` in `store.ts`. this will allow term to persist when swtiching between `/ingredients` and `/recipes` and when switching back from `/recipes` from `/recipe/[slug]` (12.18)
   -  `12.17` - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]` (12.17)

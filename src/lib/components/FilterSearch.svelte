@@ -10,6 +10,8 @@
 		<div class="input-group-shim">
 			<Search />
 		</div>
-		<input type="search" {placeholder} bind:value={filterTerm} />
+		<form>
+			<input type="search" {placeholder} bind:value={filterTerm} autocorrect="on" />
+		</form>
 	</div>
 </div>
