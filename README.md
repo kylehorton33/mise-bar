@@ -14,23 +14,28 @@
 
 ## :construction: TODO
 
-- test: link tests up with PocketBase data (12.17)
+### Priority
+
 - feat: modal for the single recipe pages? upside: will save filterTerm. downside: will lose direct links to pages? (12.17)
-- feat: save `filterTerm` in `store.ts`. this will allow term to persist when swtiching between `/ingredients` and `/recipes` and when switching back from `/recipes` from `/recipe/[slug]` (12.18)
-  - `12.17` - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]` (12.17)
-- feat 12.18: explore TS class implementation and move some common operations to methods of `Ingredient` or `Recipe` classes
-- refactor 12.18: maybe reorder the sequencing of pb data load, localStorage, stores.
-  - use `import { localStorageStore } from '@skeletonlabs/skeleton'`
+  - OR feat: save `filterTerm` in `store.ts`. this will allow term to persist when swtiching between `/ingredients` and `/recipes` and when switching back from `/recipes` from `/recipe/[slug]` (12.18)
+  - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]` (12.17)
+- refactor: use `import { localStorageStore } from '@skeletonlabs/skeleton'`
 - feat: add a new favicon/update titles on pages: `mise` `mise | recipes`
+- feat: sort recipe cards by `% missing INGs` rather than just `n missing`.current system prioritizes all recipes with 1 missing ingredient; even if that's just: gin, tonic (missing gin). better to show a recipe with 4 ingredients missing 1 (75%) first. would also want to sort recipes by greatest to least ingredients.
+
+### Low
+
+- test: link tests up with PocketBase data (12.17)
+- refactor: maybe reorder the sequencing of pb data load, localStorage, stores. (working after [0.1.4](#rocket-current-v014))
 - feat: color for each recipe. vertical bar on `RecipeCard` and horizontal bar under h1 on `/recipes/[slug]/+page`
 - launch: user tests (12.17)
-- feat: sort recipe cards by `% missing INGs` rather than just `n missing`.current system prioritizes all recipes with 1 missing ingredient; even if that's just: gin, tonic (missing gin). better to show a recipe with 4 ingredients missing 1 (75%) first. would also want to sort recipes by greatest to least ingredients.
 - feat: sort ings on recipe by: ?. quantity? this won't work easily because of different units. use in recipe? this won't work easily because i'd need new fields to define. custom order field on `ingredientLines`?
 - feat: improve `/about` by using some real world examples
   - in stock: gin, green chartreuse, lime juice, maraschino liqueur
   - out: tequila, lime juice, orange liqueur
   - ==> can make: Last Word {0}
   - ==> mising: Margarita {0}
+- feat 12.18: explore TS class implementation and move some common operations to methods of `Ingredient` or `Recipe` classes
 
 ## Changelog
 
