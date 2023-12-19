@@ -11,7 +11,7 @@
 <div class="p-8 md:max-w-lg mx-auto">
 	<h1 class="h1 text-center py-8">How to use <span class="code text-2xl">mise</span>:</h1>
 	<Stepper
-		start={1}
+		start={2}
 		on:complete={onComplete}
 		badge="variant-outline-primary text-lg px-3"
 		active="variant-filled-primary text-lg"
@@ -20,14 +20,14 @@
 			<svelte:fragment slot="header"
 				>Mark which <span class="code text-xl">ingredients</span> you have</svelte:fragment
 			>
-			<li class="justify-center flex gap-12 pt-12">
+			<li class="justify-center flex flex-col gap-6 pt-10 text-center">
 				<div>
 					<input class="checkbox" disabled type="checkbox" />
-					<span>Out of Stock</span>
+					<span class="px-2">Out of Stock</span>
 				</div>
 				<div>
 					<input class="checkbox" disabled type="checkbox" checked />
-					<span>In Stock</span>
+					<span class="px-2">In Stock</span>
 				</div>
 			</li>
 		</Step>
@@ -35,7 +35,7 @@
 			<svelte:fragment slot="header"
 				>See which <span class="code text-xl">recipes</span> you can make</svelte:fragment
 			>
-			<li class="justify-center flex gap-12 h-32 pt-12">
+			<li class="justify-center flex flex-col gap-6 pt-10 text-center">
 				<div>
 					<MissingIcon missing={2} position="mx-2" />
 					<span>Missing 2 Ingredients</span>
@@ -51,7 +51,7 @@
 				><span></span></svelte:fragment
 			>
 			<div class="flex items-center justify-center">
-				<h1 class="h1">Mix and Enjoy!</h1>
+				<h1 class="text-2xl font-bold">Mix and Enjoy!</h1>
 			</div>
 		</Step>
 	</Stepper>
