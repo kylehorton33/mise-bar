@@ -4,6 +4,9 @@
 
 	let filterTerm: string = '';
 
+	// RecipeClass(recipes, stockList)
+	// sort by missing (move below code to Class definition)
+
 	function missing(recipe: Recipe) {
 		return recipe.ingredients?.reduce(
 			(n, l) => n + +!$stockList[l.ingredient.name],
