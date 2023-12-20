@@ -19,6 +19,10 @@ declare namespace App {
 
 //declare module '*.svelte';
 
+interface StockList {
+	[key: string]: boolean;
+}
+
 interface Ingredient {
 	id: string;
 	name: string;
