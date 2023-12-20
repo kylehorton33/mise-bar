@@ -18,7 +18,7 @@
 		recipe.missing = missing(recipe);
 	});
 
-	$recipes.sort((a: Recipe, b: Recipe) => a.missing! - b.missing!);
+	$recipes.sort((a: Recipe, b: Recipe) => a.missing!/(a.ingredients?.length || 1) - b.missing!/(b.ingredients?.length || 1));
 </script>
 
 <svelte:head>
