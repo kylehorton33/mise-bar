@@ -12,6 +12,7 @@
 
 - fix: remove `Back` from Step 1 of `/about`
 - refactor: use `import { localStorageStore } from '@skeletonlabs/skeleton'`
+- feat: update titles on pages: `mise` `mise | Recipes`
 
 ## :construction: TODO
 
@@ -20,7 +21,7 @@
 - feat: modal for the single recipe pages? upside: will save filterTerm. downside: will lose direct links to pages? (12.17)
   - OR feat: save `filterTerm` in `store.ts`. this will allow term to persist when swtiching between `/ingredients` and `/recipes` and when switching back from `/recipes` from `/recipe/[slug]` (12.18)
   - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]` (12.17)
-- feat: add a new favicon/update titles on pages: `mise` `mise | recipes`
+- feat: add a new favicon
 - feat: sort recipe cards by `% missing INGs` rather than just `n missing`.current system prioritizes all recipes with 1 missing ingredient; even if that's just: gin, tonic (missing gin). better to show a recipe with 4 ingredients missing 1 (75%) first. would also want to sort recipes by greatest to least ingredients.
 
 ### Low

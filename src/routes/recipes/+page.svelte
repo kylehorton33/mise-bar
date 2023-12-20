@@ -21,6 +21,10 @@
 	$recipes.sort((a: Recipe, b: Recipe) => a.missing! - b.missing!);
 </script>
 
+<svelte:head>
+    <title>mise | Recipes</title> 
+</svelte:head>
+
 <div class="grid gap-4">
 	<h1 class="text-center pt-6">Recipes</h1>
 

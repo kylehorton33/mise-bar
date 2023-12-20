@@ -5,6 +5,10 @@
 	let filterTerm: string = '';
 </script>
 
+<svelte:head>
+    <title>mise | Ingredients</title> 
+</svelte:head>
+
 <div class="grid gap-4">
 	<h1 class="text-center pt-6">Ingredients</h1>
 	<FilterSearch

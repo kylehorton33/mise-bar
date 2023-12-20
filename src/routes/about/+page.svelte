@@ -8,6 +8,10 @@
 	}
 </script>
 
+<svelte:head>
+    <title>mise | About</title> 
+</svelte:head>
+
 <div class="p-8 md:max-w-lg mx-auto">
 	<h1 class="h1 text-center py-8">
 		How to use <span class="code text-2xl">mise</span>:
