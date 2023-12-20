@@ -19,14 +19,13 @@
 
 ### Priority
 
-- feat: modal for the single recipe pages? upside: will save filterTerm. downside: will lose direct links to pages? (12.17)
-  - OR feat: save `filterTerm` in `store.ts`. this will allow term to persist when swtiching between `/ingredients` and `/recipes` and when switching back from `/recipes` from `/recipe/[slug]` (12.18)
-  - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]` (12.17)
 - feat: add a new favicon
-
 
 ### Low
 
+- feat: modal for the single recipe pages? upside: will save filterTerm. downside: will lose direct links to pages? (12.17)
+  - OR feat: save `filterTerm` in `store.ts`. this will allow term to persist when swtiching between `/ingredients` and `/recipes` and when switching back from `/recipes` from `/recipe/[slug]` (12.18)
+  - @kate keep search results when navigating back to `/recipes` from `/recipe/[slug]` (12.17)
 - test: link tests up with PocketBase data (12.17)
 - refactor: maybe reorder the sequencing of pb data load, localStorage, stores. (working after [0.1.4](#rocket-current-v014))
 - feat: color for each recipe. vertical bar on `RecipeCard` and horizontal bar under h1 on `/recipes/[slug]/+page`
