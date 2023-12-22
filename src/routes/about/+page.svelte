@@ -8,16 +8,23 @@
 	}
 </script>
 
+<svelte:head>
+    <title>mise | About</title> 
+</svelte:head>
+
 <div class="p-8 md:max-w-lg mx-auto">
-	<h1 class="h1 text-center py-8">How to use <span class="code text-2xl">mise</span>:</h1>
+	<h1 class="h1 text-center py-8">
+		How to use <span class="code text-2xl">mise</span>:
+	</h1>
 	<Stepper
 		on:complete={onComplete}
 		badge="variant-outline-primary text-lg px-3"
 		active="variant-filled-primary text-lg"
 	>
 		<Step regionHeader="h-8" regionContent="h-32">
+			<svelte:fragment slot="navigation"><span></span></svelte:fragment>
 			<svelte:fragment slot="header"
-				>Mark which <span class="code text-xl">ingredients</span> you have</svelte:fragment
+				>Stock your <span class="code text-xl">ingredients</span> :</svelte:fragment
 			>
 			<li class="justify-center flex flex-col gap-6 pt-10 text-center">
 				<div>
@@ -46,9 +53,7 @@
 			</li>
 		</Step>
 		<Step regionHeader="h-8" regionContent="h-32">
-			<svelte:fragment slot="header"
-				><span></span></svelte:fragment
-			>
+			<svelte:fragment slot="header"><span></span></svelte:fragment>
 			<div class="flex items-center justify-center">
 				<h1 class="text-2xl font-bold">Mix and Enjoy!</h1>
 			</div>
