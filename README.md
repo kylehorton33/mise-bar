@@ -14,12 +14,12 @@
 - refactor: use `import { localStorageStore } from '@skeletonlabs/skeleton'`
 - feat: update titles on pages: `mise` `mise | Recipes`
 - feat: sort recipe cards by `% missing INGs` rather than just `n missing`.current system prioritizes all recipes with 1 missing ingredient; even if that's just: gin, tonic (missing gin). better to show a recipe with 4 ingredients missing 1 (75%) first. would also want to sort recipes by greatest to least ingredients.
+- feat: add a new favicon
 
 ## :construction: TODO
 
 ### Priority
 
-- feat: add a new favicon
 
 ### Low
 
