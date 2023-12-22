@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v0.1.4
+
+- 2023-12-18
+- fix: data seems to "expire" in mobile tab if left open for too long. (12.18)
+  - found source of issue `+page.server.ts` load of store not working if tab left open too long
+  - fixed with reading `recipe` directly from `$recipes` store with `$page.params.slug`
+- docs: create a `LICENSE.md` (12.18)
+- feat: improved `/about` page. using: `{ Stepper, Step }` from `'@skeletonlabs/skeleton'` (12.18)
+- feat: @kate press enter/search to exit input bar (12.17)
+
 ## v0.1.3
 
 - 2023-12-17
