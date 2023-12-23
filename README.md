@@ -28,6 +28,11 @@
   - ==> can make: Last Word {0}
   - ==> mising: Margarita {0}
 - feat 12.18: explore TS class implementation and move some common operations to methods of `Ingredient` or `Recipe` classes
+- improve: responsive styling between screen sizes.
+- feat: user accounts to keep track of your favorite recipes or sync your bar ingredients across multiple devices
+- feat: forms to accept user submitted recipes, photos
+- feat: comment features on recipes
+- feat: scale button on recipes (1x, 2x, 3x multipliers to make more servings).
 
 ## Changelog
 
