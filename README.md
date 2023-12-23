@@ -1,6 +1,6 @@
 ## :rocket: Current v0.2.0
 
-- 2023.
+- 2023.12.22
 - fix: remove `Back` from Step 1 of `/about`
 - refactor: use `import { localStorageStore } from '@skeletonlabs/skeleton'`
 - feat: update titles on pages: `mise` `mise | Recipes`
